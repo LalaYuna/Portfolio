@@ -12,6 +12,24 @@ fail() {
   exit 1
 }
 
+verify_delivery_git_context() {
+  local resolved_workspace
+
+  [[ -e "${ROOT_DIR}/.git" || -L "${ROOT_DIR}/.git" ]] || return 0
+
+  [[ -d "${ROOT_DIR}/.git" && ! -L "${ROOT_DIR}/.git" ]] \
+    || fail '.git must be a real directory in a GitHub Actions checkout'
+  [[ "${GITHUB_ACTIONS:-}" == true ]] \
+    || fail '.git is only allowed in the exact GitHub Actions workspace'
+  [[ -n "${GITHUB_WORKSPACE:-}" && -d "${GITHUB_WORKSPACE}" ]] \
+    || fail 'GITHUB_WORKSPACE must resolve to the delivery root when .git exists'
+
+  resolved_workspace="$(cd "${GITHUB_WORKSPACE}" && pwd -P)" \
+    || fail 'GITHUB_WORKSPACE could not be resolved'
+  [[ "${resolved_workspace}" == "${ROOT_DIR}" ]] \
+    || fail 'GITHUB_WORKSPACE must resolve to the delivery root when .git exists'
+}
+
 required_files=(
   .dockerignore
   .github/workflows/delivery.yml
@@ -26,6 +44,8 @@ required_files=(
   public/index.html
   scripts/verify-static-site.py
   scripts/verify-static-site.sh
+  tests/test-delivery-git-context.sh
+  tests/test-deploy-transaction.sh
   tests/test-deploy-command-guard.sh
 )
 
@@ -36,14 +56,20 @@ for relative_path in "${required_files[@]}"; do
     || fail "symlink is not allowed: ${relative_path}"
 done
 
-[[ ! -e "${ROOT_DIR}/.git" ]] || fail '.git must not exist in the delivery root'
+verify_delivery_git_context
 
 /bin/bash "${ROOT_DIR}/scripts/verify-static-site.sh"
 
 /bin/bash -n "${ROOT_DIR}/scripts/verify-static-site.sh"
 /bin/bash -n "${ROOT_DIR}/scripts/verify-delivery.sh"
+/bin/bash -n "${ROOT_DIR}/tests/test-delivery-git-context.sh"
 /bin/bash -n "${ROOT_DIR}/tests/test-deploy-command-guard.sh"
+/bin/bash -n "${ROOT_DIR}/tests/test-deploy-transaction.sh"
 /bin/bash -n "${ROOT_DIR}/homeserver/scripts/deploy-songyuna-portfolio-ci.sh"
+
+if [[ "${GITHUB_ACTIONS:-}" != true ]]; then
+  /bin/bash "${ROOT_DIR}/tests/test-delivery-git-context.sh"
+fi
 
 if command -v ruby >/dev/null 2>&1; then
   ruby -e 'require "yaml"; YAML.safe_load(File.read(ARGV.fetch(0)), aliases: true)' \
@@ -77,6 +103,11 @@ gate_count="$(
   || fail 'ARM64 validation runner is missing'
 /usr/bin/grep -Fq 'IMAGE_NAME: ghcr.io/lalayuna/portfolio' "${WORKFLOW_FILE}" \
   || fail 'approved GHCR image repository is missing'
+/usr/bin/grep -Fq 'tags: tag:songyuna-portfolio-ci' "${WORKFLOW_FILE}" \
+  || fail 'project-specific Tailscale CI tag is missing'
+if /usr/bin/grep -Fq 'tags: tag:ci' "${WORKFLOW_FILE}"; then
+  fail 'shared Tailscale CI tag must not be used for this repository'
+fi
 /usr/bin/grep -Fq 'permissions:' "${WORKFLOW_FILE}" \
   || fail 'workflow permissions are missing'
 
@@ -124,5 +155,11 @@ if /usr/bin/grep -Fq '/var/run/docker.sock' <<<"${rendered_compose}"; then
 fi
 
 /bin/bash "${ROOT_DIR}/tests/test-deploy-command-guard.sh"
+
+if [[ "$(/usr/bin/uname -s)" == Darwin ]]; then
+  /bin/bash "${ROOT_DIR}/tests/test-deploy-transaction.sh"
+else
+  printf 'Deploy transaction test skipped: macOS lockf is required\n'
+fi
 
 printf 'Delivery contract verification passed\n'

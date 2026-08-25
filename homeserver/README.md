@@ -59,8 +59,8 @@ stable bootstrap은 다음을 강제한다.
 3. 외부 Docker network `edge` 존재와 새 service의 host port/bind/socket 부재
 4. `/usr/local/bin/docker`, Docker Compose plugin, `/usr/bin/lockf` 실행 가능
 5. 설치 대상 파일별 timestamp backup과 정확한 원복 경로
-6. Tailscale `tag:ci`가 허용된 Mac mini SSH target만 접근하는지
-7. Cloudflare route와 public DNS가 아직 비활성인지
+6. Tailscale `tag:songyuna-portfolio-ci`가 Mac mini SSH `tcp:22`만 접근하는지
+7. Cloudflare route의 exact hostname/service와 public DNS 상태
 
 Compose와 bootstrap은 개별 backup 후 atomic install하고 각각 mode `0644`, `0700`을
 적용한다. `/Users/homeserver/.ssh/authorized_keys`에는 기존 줄을 보존한 채 songyuna
@@ -82,13 +82,13 @@ Tailscale federated identity는 GitHub OIDC issuer와 다음 claim을 가능한 
 - repository: `LalaYuna/Portfolio`
 - ref: `refs/heads/main`
 - workflow: `.github/workflows/delivery.yml`
-- tag: `tag:ci`
+- tag: `tag:songyuna-portfolio-ci`
 
 GitHub `Production` environment에는 `TS_OAUTH_CLIENT_ID`, `TS_AUDIENCE`,
-`HOME_MINI_SSH_KEY`, `HOME_MINI_KNOWN_HOSTS`를 owner가 직접 입력한다. repository
-variables `HOME_MINI_HOST`, `HOME_MINI_SSH_USER`를 설정하되
-`MAC_MINI_DEPLOY_ENABLED`는 bootstrap preflight 완료 전까지 missing 또는 `false`로
-유지한다.
+`HOME_MINI_SSH_KEY`, `HOME_MINI_KNOWN_HOSTS`를 owner가 직접 입력한다. 같은 environment의
+variables로 `HOME_MINI_HOST`, `HOME_MINI_SSH_USER`를 설정한다. repository variable
+`MAC_MINI_DEPLOY_ENABLED`는 bootstrap과 SSH 연결 preflight 완료 전까지 missing 또는
+`false`로 유지한다.
 
 ## 첫 배포 preflight
 

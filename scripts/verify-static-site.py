@@ -169,6 +169,9 @@ class PortfolioHTMLParser(HTMLParser):
 
 def iter_files() -> Iterable[Path]:
     for candidate in sorted(ROOT.rglob("*")):
+        relative_parts = candidate.relative_to(ROOT).parts
+        if relative_parts and relative_parts[0] == ".git":
+            continue
         if candidate.is_file() or candidate.is_symlink():
             yield candidate
 
@@ -297,14 +300,44 @@ def verify_css_references(errors: List[str]) -> None:
                 errors.append(f"{relative(css_path)}: missing local reference {reference}")
 
 
+def verify_git_context(errors: List[str]) -> None:
+    git_path = ROOT / ".git"
+    if not git_path.exists() and not git_path.is_symlink():
+        return
+
+    if git_path.is_symlink() or not git_path.is_dir():
+        errors.append(".git must be a real directory in a GitHub Actions checkout")
+        return
+    if os.environ.get("GITHUB_ACTIONS") != "true":
+        errors.append(".git is only allowed in the exact GitHub Actions workspace")
+        return
+
+    workspace_value = os.environ.get("GITHUB_WORKSPACE", "")
+    if not workspace_value:
+        errors.append(
+            "GITHUB_WORKSPACE must resolve to the delivery root when .git exists"
+        )
+        return
+
+    try:
+        workspace = Path(workspace_value).resolve(strict=True)
+    except OSError:
+        errors.append("GITHUB_WORKSPACE could not be resolved")
+        return
+
+    if not workspace.is_dir() or workspace != ROOT:
+        errors.append(
+            "GITHUB_WORKSPACE must resolve to the delivery root when .git exists"
+        )
+
+
 def verify_files(errors: List[str]) -> None:
     for required in REQUIRED_FILES:
         candidate = ROOT / required
         if not candidate.is_file() or candidate.is_symlink():
             errors.append(f"required regular file is missing: {required}")
 
-    if (ROOT / ".git").exists():
-        errors.append("delivery root must not contain .git")
+    verify_git_context(errors)
 
     total_size = 0
     for candidate in iter_files():

@@ -4,9 +4,9 @@
 Mac mini의 기존 Git 계정이나 여자친구의 GitHub credential을 사용하지 않는다.
 여자친구가 자신의 컴퓨터에서 내용을 확인하고 직접 `main`에 commit·push한다.
 
-현재 화면은 별도 초안을 받지 않은 상태에서 만든 responsive starter다. 확인되지
-않은 경력, 프로젝트 성과, 기술, 이메일은 넣지 않았다. 실제 공개 전에
-`public/index.html`의 소개·프로젝트·연락처를 여자친구의 사실로 교체한다.
+`public/` 화면은 여자친구가 수정한 결과다. 전달용 배포 파일만 갱신할 때는
+`public/`을 기존 GitHub repository에 다시 복사하거나 덮어쓰지 않는다. 공개 전에는
+소개·프로젝트·연락처가 실제 공개 가능한 사실인지 최종 확인한다.
 
 ## 폴더 구조
 
@@ -16,7 +16,7 @@ public/                         실제로 공개되는 HTML/CSS/JS와 asset
 Dockerfile                     ARM64 non-root Nginx image
 nginx.conf                     정적 파일, /health, 보안 header
 scripts/                       dependency 없는 source/배포 계약 검증
-tests/                         forced-command 거부 경로 검증
+tests/                         Git context, forced-command와 배포 transaction 검증
 homeserver/                    운영 파일의 secret 없는 source copy와 runbook
 ```
 
@@ -55,16 +55,18 @@ ZIP checksum을 먼저 확인한 뒤 압축을 푼다. Finder에서 보이지 �
 `.github`, `.gitignore`, `.dockerignore`도 포함됐는지 확인한다. 외부 checksum
 파일 자체는 GitHub repository에 넣지 않는다.
 
-## 첫 GitHub 반영
+## GitHub 반영
 
-`LalaYuna/Portfolio`는 첫 source를 받기 위한 빈 repository다. 여자친구의
-컴퓨터에서 이 bundle의 **내용 전체**를 repository root에 복사한 뒤 여자친구의
-Git identity와 credential로 첫 `main` commit·push를 수행한다. Mac mini와 이
-전달 폴더에서는 clone, commit, remote 연결, push를 하지 않는다.
+첫 반영은 여자친구 컴퓨터에서 이 bundle의 **내용 전체**를 repository root에
+복사한다. 이후 전달용 배포 파일만 갱신할 때는 안내받은 파일만 교체하고 기존
+`public/`은 보존한다. commit·push는 여자친구의 Git identity와 credential로
+`main`에서 수행한다. Mac mini와 이 전달 폴더에서는 clone, commit, remote 연결,
+push를 하지 않는다.
 
-첫 push 전후에 GitHub repository variable `MAC_MINI_DEPLOY_ENABLED`는 만들지
-않거나 정확히 `false`로 둔다. 이 경우 workflow는 static site와 ARM64 container를
-검증하지만 GHCR publish와 Mac mini deploy job은 모두 skip한다.
+운영 담당자가 SSH key와 연결 preflight 완료를 알리기 전에는 push하지 않는다.
+그 전까지 GitHub repository variable `MAC_MINI_DEPLOY_ENABLED`는 만들지 않거나
+정확히 `false`로 둔다. 준비가 끝나 gate를 `true`로 바꾸면 첫 `main` push부터
+검증, GHCR publish와 Mac mini deploy를 연속 실행한다.
 
 ## 검증
 
@@ -81,6 +83,10 @@ Docker CLI와 Ruby가 있는 환경에서는 Compose, workflow pin/gate, forced-
 bash ./scripts/verify-delivery.sh
 ```
 
+전달 폴더는 계속 Git 없이 보관한다. 검증기는 `.git`을 기본 거부하며,
+`GITHUB_ACTIONS=true`이고 `GITHUB_WORKSPACE`가 검증 대상 root와 정확히 일치하는
+GitHub Actions checkout에서만 실제 `.git` directory를 허용한다.
+
 Mac mini에서는 production image를 build하지 않는다. `linux/arm64` image build,
 non-root runtime, `/health`, root/asset/404와 security header 검증은 GitHub-hosted
 ARM64 runner가 수행한다.
@@ -90,11 +96,16 @@ ARM64 runner가 수행한다.
 운영 bootstrap을 별도 승인으로 완료한 뒤 repository owner가 GitHub에 직접
 설정한다. password, PAT, private key 원문을 문서나 대화에 붙여 넣지 않는다.
 
-Repository variables:
+Repository variable:
 
 | 이름 | 역할 |
 | --- | --- |
 | `MAC_MINI_DEPLOY_ENABLED` | 정확히 `true`일 때만 publish/deploy 활성화 |
+
+`Production` environment variables:
+
+| 이름 | 역할 |
+| --- | --- |
 | `HOME_MINI_HOST` | Tailscale에서 접근할 Mac mini hostname |
 | `HOME_MINI_SSH_USER` | forced-command key를 둔 제한된 SSH user |
 
@@ -111,13 +122,13 @@ Repository variables:
 
 ## 배포 활성화 순서
 
-1. 첫 `main` push에서 `validate` 성공, `publish`/`deploy` skip 확인
-2. 별도 운영 승인으로 Mac mini Compose와 forced-command bootstrap 설치
-3. Tailscale WIF, SSH public key와 GitHub variable/secret 설정
-4. 잘못된 command/digest/SHA, lock, first-deploy failure와 rollback preflight
-5. 별도 첫 배포 승인 후 `MAC_MINI_DEPLOY_ENABLED=true` 설정
-6. `workflow_dispatch` 또는 승인된 다음 `main` push로 첫 배포
-7. container 내부 검증 성공 후 별도 DNS 승인으로 Cloudflare/Gabia 연결
+1. 운영 담당자가 Mac mini Compose와 forced-command bootstrap 설치
+2. Tailscale WIF, SSH public key와 GitHub variable/secret 설정
+3. 잘못된 command/digest/SHA, lock, first-deploy failure와 rollback preflight
+4. Cloudflare/Gabia DNS 위임과 apex Tunnel route 확인
+5. SSH/Tailscale 연결 확인 뒤 `MAC_MINI_DEPLOY_ENABLED=true` 설정
+6. 여자친구의 첫 `main` push로 검증, image publish와 첫 배포
+7. container 내부와 `https://songyuna.co.kr` 공개 응답 검증
 
 일상 운영에서는 여자친구의 `main` push가 같은 validation → immutable digest →
 forced-command deployment 흐름을 실행한다. validation 실패나 deploy 실패는
