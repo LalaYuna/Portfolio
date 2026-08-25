@@ -455,8 +455,8 @@ p:last-child {
 
 .hero-title-accent {
   color: var(--cobalt);
-  font-family: Georgia, "Times New Roman", serif;
-  font-style: italic;
+  font-family: "Noto Sans KR", sans-serif;
+  font-style: normal;
   font-weight: 400;
   letter-spacing: -0.075em;
 }
