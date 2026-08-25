@@ -263,7 +263,7 @@ jobs:
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           audience: ${{ secrets.TS_AUDIENCE }}
-          tags: tag:ci
+          tags: tag:songyuna-portfolio-ci
           hostname: songyuna-portfolio-deploy-${{ github.run_id }}-${{ github.run_attempt }}
           ping: ${{ vars.HOME_MINI_HOST }}
 
