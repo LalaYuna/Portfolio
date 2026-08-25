@@ -1,0 +1,38 @@
+name: songyuna-portfolio
+
+services:
+  web:
+    image: ${SONGYUNA_PORTFOLIO_IMAGE:?SONGYUNA_PORTFOLIO_IMAGE must be an exact digest reference}
+    container_name: songyuna-portfolio
+    restart: unless-stopped
+    read_only: true
+    init: true
+    pids_limit: 100
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - -q
+        - -O
+        - /dev/null
+        - http://127.0.0.1:8080/health
+      interval: 30s
+      timeout: 5s
+      start_period: 5s
+      retries: 3
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    networks:
+      - edge
+
+networks:
+  edge:
+    external: true
+    name: edge
