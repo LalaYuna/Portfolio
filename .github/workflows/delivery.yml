@@ -1,0 +1,318 @@
+name: Delivery
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: songyuna-portfolio-production
+  cancel-in-progress: false
+
+env:
+  IMAGE_NAME: ghcr.io/lalayuna/portfolio
+
+jobs:
+  validate:
+    name: Validate static site and ARM64 image
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 15
+    permissions:
+      contents: read
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Verify source and delivery contracts
+        run: /bin/bash ./scripts/verify-delivery.sh
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c
+
+      - name: Build ARM64 verification image
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a
+        with:
+          context: .
+          platforms: linux/arm64
+          load: true
+          push: false
+          tags: songyuna-portfolio:verify
+          cache-from: type=gha,scope=songyuna-portfolio-arm64
+          cache-to: type=gha,mode=max,scope=songyuna-portfolio-arm64
+
+      - name: Verify container runtime
+        shell: bash
+        run: |
+          set -Eeuo pipefail
+
+          container_name="songyuna-portfolio-verify-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+
+          cleanup() {
+            docker stop "${container_name}" >/dev/null 2>&1 || true
+          }
+          trap cleanup EXIT INT TERM
+
+          docker run \
+            --detach \
+            --rm \
+            --read-only \
+            --init \
+            --pids-limit 100 \
+            --security-opt no-new-privileges \
+            --tmpfs /tmp:size=64m,mode=1777 \
+            --name "${container_name}" \
+            --publish 127.0.0.1:18080:8080 \
+            songyuna-portfolio:verify \
+            >/dev/null
+
+          health_state=starting
+          for _ in {1..30}; do
+            health_state="$(
+              docker inspect \
+                --format '{{.State.Health.Status}}' \
+                "${container_name}"
+            )"
+
+            if [[ "${health_state}" == healthy ]]; then
+              break
+            fi
+            if [[ "${health_state}" == unhealthy ]]; then
+              docker logs --tail 80 "${container_name}" >&2
+              exit 1
+            fi
+            sleep 1
+          done
+
+          if [[ "${health_state}" != healthy ]]; then
+            docker logs --tail 80 "${container_name}" >&2
+            exit 1
+          fi
+
+          assert_status() {
+            local expected_status="$1"
+            local route="$2"
+            local actual_status
+
+            actual_status="$(
+              curl \
+                --silent \
+                --show-error \
+                --output /dev/null \
+                --write-out '%{http_code}' \
+                "http://127.0.0.1:18080${route}"
+            )"
+
+            if [[ "${actual_status}" != "${expected_status}" ]]; then
+              printf 'Unexpected status for %s: expected=%s actual=%s\n' \
+                "${route}" \
+                "${expected_status}" \
+                "${actual_status}" \
+                >&2
+              exit 1
+            fi
+          }
+
+          for route in \
+            / \
+            /health \
+            /assets/styles.css \
+            /assets/script.js \
+            /assets/favicon.svg \
+            /robots.txt \
+            /sitemap.xml
+          do
+            assert_status 200 "${route}"
+          done
+          assert_status 404 /not-found
+
+          runtime_uid="$(docker exec "${container_name}" id -u)"
+          [[ "${runtime_uid}" != 0 ]] || {
+            printf 'Container must not run as root\n' >&2
+            exit 1
+          }
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            http://127.0.0.1:18080/health \
+            | grep --quiet --line-regexp 'ok'
+
+          curl \
+            --fail \
+            --silent \
+            --show-error \
+            http://127.0.0.1:18080/ \
+            | grep --quiet 'Song Yuna'
+
+          response_headers="$(
+            curl \
+              --fail \
+              --silent \
+              --show-error \
+              --head \
+              http://127.0.0.1:18080/
+          )"
+
+          grep --ignore-case --quiet '^X-Content-Type-Options: nosniff' \
+            <<<"${response_headers}"
+          grep --ignore-case --quiet '^X-Frame-Options: DENY' \
+            <<<"${response_headers}"
+          grep --ignore-case --quiet '^Referrer-Policy: strict-origin-when-cross-origin' \
+            <<<"${response_headers}"
+          grep --ignore-case --quiet '^Content-Security-Policy:' \
+            <<<"${response_headers}"
+
+          printf 'ARM64 container runtime verification passed\n'
+
+  publish:
+    name: Publish immutable ARM64 image
+    if: github.ref == 'refs/heads/main' && vars.MAC_MINI_DEPLOY_ENABLED == 'true'
+    needs:
+      - validate
+    runs-on: ubuntu-24.04-arm
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image_digest: ${{ steps.publish.outputs.digest }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@bb05f3f5519dd87d3ba754cc423b652a5edd6d2c
+
+      - name: Log in to GHCR
+        uses: docker/login-action@371161bbe7024a29a25c5e19bfcbc0804fe9ad2c
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build and publish ARM64 image
+        id: publish
+        uses: docker/build-push-action@53b7df96c91f9c12dcc8a07bcb9ccacbed38856a
+        with:
+          context: .
+          platforms: linux/arm64
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.version=${{ github.sha }}
+          cache-from: type=gha,scope=songyuna-portfolio-arm64
+          cache-to: type=gha,mode=max,scope=songyuna-portfolio-arm64
+
+      - name: Record published image
+        env:
+          IMAGE_DIGEST: ${{ steps.publish.outputs.digest }}
+        run: |
+          set -Eeuo pipefail
+          [[ "${IMAGE_DIGEST}" =~ ^sha256:[0-9a-f]{64}$ ]]
+          {
+            printf '## Published image\n\n'
+            printf -- '- Image: `%s:sha-%s`\n' "${IMAGE_NAME}" "${GITHUB_SHA}"
+            printf -- '- Digest: `%s`\n' "${IMAGE_DIGEST}"
+          } >>"${GITHUB_STEP_SUMMARY}"
+
+  deploy:
+    name: Deploy exact digest to Mac mini
+    if: github.ref == 'refs/heads/main' && vars.MAC_MINI_DEPLOY_ENABLED == 'true'
+    needs:
+      - publish
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: Production
+      url: https://songyuna.co.kr
+    permissions:
+      contents: read
+      id-token: write
+      packages: read
+
+    steps:
+      - name: Validate deployment settings
+        env:
+          HOME_MINI_HOST: ${{ vars.HOME_MINI_HOST }}
+          HOME_MINI_SSH_USER: ${{ vars.HOME_MINI_SSH_USER }}
+          HOME_MINI_KNOWN_HOSTS: ${{ secrets.HOME_MINI_KNOWN_HOSTS }}
+          HOME_MINI_SSH_KEY: ${{ secrets.HOME_MINI_SSH_KEY }}
+          TS_AUDIENCE: ${{ secrets.TS_AUDIENCE }}
+          TS_OAUTH_CLIENT_ID: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+        run: |
+          set -Eeuo pipefail
+          [[ "${HOME_MINI_HOST}" =~ ^[A-Za-z0-9._-]+$ ]]
+          [[ "${HOME_MINI_SSH_USER}" =~ ^[a-z_][a-z0-9_-]{0,31}$ ]]
+          test -n "${HOME_MINI_KNOWN_HOSTS}"
+          test -n "${HOME_MINI_SSH_KEY}"
+          test -n "${TS_AUDIENCE}"
+          test -n "${TS_OAUTH_CLIENT_ID}"
+
+      - name: Connect to Tailscale
+        uses: tailscale/github-action@780049a30b6ff5c378a9e7b389d15ece7a204888
+        with:
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          audience: ${{ secrets.TS_AUDIENCE }}
+          tags: tag:ci
+          hostname: songyuna-portfolio-deploy-${{ github.run_id }}-${{ github.run_attempt }}
+          ping: ${{ vars.HOME_MINI_HOST }}
+
+      - name: Configure restricted SSH identity
+        env:
+          HOME_MINI_KNOWN_HOSTS: ${{ secrets.HOME_MINI_KNOWN_HOSTS }}
+          HOME_MINI_SSH_KEY: ${{ secrets.HOME_MINI_SSH_KEY }}
+        run: |
+          set -Eeuo pipefail
+          umask 077
+          mkdir -p "${HOME}/.ssh"
+          printf '%s\n' "${HOME_MINI_SSH_KEY}" >"${HOME}/.ssh/id_ed25519_home_mini_ci"
+          printf '%s\n' "${HOME_MINI_KNOWN_HOSTS}" >"${HOME}/.ssh/known_hosts"
+          ssh-keygen -y -f "${HOME}/.ssh/id_ed25519_home_mini_ci" >/dev/null
+          ssh-keygen -lf "${HOME}/.ssh/known_hosts" >/dev/null
+
+      - name: Deploy published image
+        env:
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HOME_MINI_HOST: ${{ vars.HOME_MINI_HOST }}
+          HOME_MINI_SSH_USER: ${{ vars.HOME_MINI_SSH_USER }}
+          IMAGE_DIGEST: ${{ needs.publish.outputs.image_digest }}
+        run: |
+          set -Eeuo pipefail
+
+          [[ "${IMAGE_DIGEST}" =~ ^sha256:[0-9a-f]{64}$ ]]
+          [[ "${GITHUB_SHA}" =~ ^[0-9a-f]{40}$ ]]
+          [[ "${GITHUB_ACTOR}" =~ ^[A-Za-z0-9][A-Za-z0-9_-]{0,38}$ ]]
+          [[ "${HOME_MINI_HOST}" =~ ^[A-Za-z0-9._-]+$ ]]
+          [[ "${HOME_MINI_SSH_USER}" =~ ^[a-z_][a-z0-9_-]{0,31}$ ]]
+
+          deploy_command="deploy-songyuna-portfolio ${IMAGE_DIGEST} ${GITHUB_SHA} ${GITHUB_ACTOR}"
+          printf '%s' "${GHCR_TOKEN}" \
+            | ssh \
+              -T \
+              -o BatchMode=yes \
+              -o ConnectTimeout=10 \
+              -o IdentitiesOnly=yes \
+              -o ServerAliveCountMax=2 \
+              -o ServerAliveInterval=15 \
+              -o StrictHostKeyChecking=yes \
+              -o UserKnownHostsFile="${HOME}/.ssh/known_hosts" \
+              -i "${HOME}/.ssh/id_ed25519_home_mini_ci" \
+              "${HOME_MINI_SSH_USER}@${HOME_MINI_HOST}" \
+              "${deploy_command}"
+
+          {
+            printf '## Deployment\n\n'
+            printf -- '- Revision: `%s`\n' "${GITHUB_SHA}"
+            printf -- '- Digest: `%s`\n' "${IMAGE_DIGEST}"
+            printf -- '- Target: Mac mini forced-command deployment\n'
+          } >>"${GITHUB_STEP_SUMMARY}"

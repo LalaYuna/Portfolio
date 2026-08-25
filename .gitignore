@@ -1,0 +1,15 @@
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+node_modules/
+dist/
+coverage/
+*.log
+songyuna-portfolio-delivery.zip
+songyuna-portfolio-delivery.SHA256SUMS
+songyuna-portfolio-delivery.zip.sha256
