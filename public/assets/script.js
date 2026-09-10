@@ -60,7 +60,7 @@ if ("IntersectionObserver" in window && !reducedMotion.matches && revealElements
 
 function openLinkedProject() {
   const target = document.getElementById(window.location.hash.slice(1));
-  const details = target?.querySelector(".case-study");
+  const details = target?.closest(".case-study") || target?.querySelector(".case-study");
   if (details) details.open = true;
 }
 openLinkedProject();
