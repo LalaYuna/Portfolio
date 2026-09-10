@@ -109,6 +109,7 @@ a.project-cover:hover { filter: saturate(1.15); }
 .placeholder-cover-title { margin-top: 48px; font-size: clamp(3.5rem, 7vw, 6.8rem); font-weight: 600; line-height: 1.08; letter-spacing: -.075em; }
 .placeholder-cover-title > span { color: #a77568; }
 .placeholder-cover-title-en { font-size: clamp(3.2rem, 6vw, 5.8rem); }
+.work-cover-title { max-width: 790px; margin-top: 35px; font-size: clamp(2.4rem, 4.25vw, 3.9rem); font-weight: 600; line-height: 1.2; letter-spacing: -.06em; }
 .social-cover-title { margin-top: 32px; font-size: clamp(2.1rem, 3.7vw, 3.65rem); font-weight: 500; line-height: 1.2; letter-spacing: -.065em; }
 .social-cover-title > span { font-family: "Pretendard", sans-serif; }
 .social-metric { display: flex; gap: 20px; align-items: flex-end; margin-top: 21px; }
@@ -426,6 +427,7 @@ html:not(.js) .contact-form { display: none; }
   .work-card .social-cover-title { font-size: 38px; }
   .work-card .social-metric > strong { font-size: 75px; }
   .work-card .placeholder-cover-title { margin-top: 42px; font-size: 54px; }
+  .work-card .work-cover-title { margin-top: 28px; font-size: 31px; line-height: 1.32; letter-spacing: -.045em; }
   .work-card-body { padding: 28px 23px; }
   .work-card-body > .eyebrow { font-size: 12px; letter-spacing: .065em; }
   .work-card h2 { font-size: 26px; }
