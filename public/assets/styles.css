@@ -104,6 +104,11 @@ a.project-cover:hover { filter: saturate(1.15); }
 .cover-bottomline { margin-top: auto; padding-top: 35px; }
 .cover-bottomline > span:last-child { font-size: 27px; font-weight: 400; line-height: 1; }
 .cover-social { background: #f1ccd9; color: #39324a; }
+.cover-barryway { background: var(--blue); color: #333b3d; }
+.cover-additional { background: var(--lavender); color: #363342; }
+.placeholder-cover-title { margin-top: 48px; font-size: clamp(3.5rem, 7vw, 6.8rem); font-weight: 600; line-height: 1.08; letter-spacing: -.075em; }
+.placeholder-cover-title > span { color: #a77568; }
+.placeholder-cover-title-en { font-size: clamp(3.2rem, 6vw, 5.8rem); }
 .social-cover-title { margin-top: 32px; font-size: clamp(2.1rem, 3.7vw, 3.65rem); font-weight: 500; line-height: 1.2; letter-spacing: -.065em; }
 .social-cover-title > span { font-family: "Pretendard", sans-serif; }
 .social-metric { display: flex; gap: 20px; align-items: flex-end; margin-top: 21px; }
@@ -252,7 +257,7 @@ a.project-cover:hover { filter: saturate(1.15); }
 .page-hero h1 { font-size: clamp(2.5rem, 4.6vw, 4.3rem); line-height: 1.28; letter-spacing: -.055em; }
 .page-hero p { font-size: 21px; line-height: 1.8; max-width: 810px; margin: 24px auto 0; }
 .work-hero { background: var(--blush); padding-bottom: 185px; }
-.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 38px; margin-top: -90px; position: relative; align-items: start; }
+.work-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 38px; max-width: 900px; margin-top: -90px; position: relative; align-items: start; }
 .work-card { background: white; border: var(--line); border-radius: var(--radius); overflow: hidden; scroll-margin-top: 30px; }
 .work-card .project-cover { border-bottom: var(--line); min-height: 410px; padding: 30px 35px; }
 .work-card .cover-title { font-size: 77px; margin-top: 33px; }
@@ -270,6 +275,8 @@ a.project-cover:hover { filter: saturate(1.15); }
 .result-strip > span { display: block; font-size: 12px; margin-bottom: 5px; color: var(--muted); }
 .result-strip > strong { display: block; font-size: 16px; font-weight: 500; }
 #social .result-strip { background: #e9f2f6; }
+#barryway .result-strip { background: #e9f4f7; }
+#additional-work .result-strip { background: #efedff; }
 .case-study { margin-top: 27px; border-top: 1px solid #22232140; }
 summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 22px; }
 summary::-webkit-details-marker { display: none; }
@@ -378,6 +385,7 @@ html:not(.js) .contact-form { display: none; }
   .work-card .cover-title { font-size: 64px; margin-top: 28px; }
   .work-card .social-cover-title { font-size: 38px; }
   .work-card .social-metric > strong { font-size: 75px; }
+  .work-card .placeholder-cover-title { margin-top: 42px; font-size: 54px; }
   .work-card-body { padding: 28px 23px; }
   .work-card-body > .eyebrow { font-size: 12px; letter-spacing: .065em; }
   .work-card h2 { font-size: 26px; }
