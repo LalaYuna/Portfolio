@@ -240,19 +240,20 @@ a.project-cover:hover { filter: saturate(1.15); }
 .identity-bottom > span { font-size: 12px; letter-spacing: .08em; }
 .about-copy > .eyebrow { color: var(--muted); margin-bottom: 17px; }
 .about-copy > .about-kicker { font-size: 18px; color: var(--ink); letter-spacing: -.01em; }
-.about-copy h1 { max-width: 800px; font-size: clamp(2.55rem, 4.35vw, 4rem); line-height: 1.22; }
+.about-copy h1 { max-width: 900px; font-size: clamp(2.35rem, 3.35vw, 3rem); line-height: 1.25; }
 .about-copy > p { margin-top: 21px; font-size: 16px; line-height: 1.85; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 9px; list-style: none; padding: 0; margin: 26px 0 0; }
 .skill-tags li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; border: var(--line); border-radius: 30px; padding: 4px 12px 4px 6px; font-size: 13px; background: white; }
-.tool-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; border: 1px solid #22232130; border-radius: 50%; font-size: 9px; font-weight: 600; letter-spacing: -.02em; line-height: 1; }
-.tool-google { background: var(--yellow); }
-.tool-meta { background: var(--blue); }
+.tool-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; border-radius: 7px; line-height: 1; }
+.tool-icon img { display: block; width: 14px; height: 14px; filter: brightness(0) invert(1); }
+.tool-google { background: #e37400; }
+.tool-meta { background: #0866ff; }
 .tool-notion { color: white; background: var(--ink); }
-.tool-figma { background: var(--pink); }
-.tool-capcut { background: var(--lavender); }
-.tool-excel { background: #dcecdf; }
-.tool-canva { background: #dff3ef; }
-.tool-slack { background: #f5e6b9; }
+.tool-figma { background: #f24e1e; }
+.tool-capcut { background: #111; }
+.tool-excel { background: #217346; }
+.tool-canva { background: #00a8b5; }
+.tool-slack { background: #4a154b; }
 .about-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 30px; }
 .about-metric-card { display: flex; flex-direction: column; min-width: 0; min-height: 150px; border: var(--line); border-radius: 15px; padding: 18px; }
 .about-metric-card strong { font-size: 22px; line-height: 1.25; letter-spacing: -.045em; }
