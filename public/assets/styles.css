@@ -232,7 +232,7 @@ a.project-cover:hover { filter: saturate(1.15); }
 .about-section { background: var(--lavender); border-bottom: var(--line); padding-top: 175px; }
 .about-layout { display: grid; grid-template-columns: 320px minmax(0, 1fr); gap: 68px; align-items: start; }
 .about-identity { display: flex; flex-direction: column; width: 100%; min-height: 405px; border: var(--line); border-radius: var(--radius); padding: 27px; background: #f8f7ff; transform: rotate(0); }
-.about-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border: 1px solid #22232138; border-radius: 14px; margin: 18px 0; background: white; }
+.about-photo { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border: 1px solid #22232138; border-radius: 14px; margin: 0 0 18px; background: white; }
 .about-monogram { align-self: center; font-family: "Pretendard", sans-serif; font-style: italic; font-size: 170px; line-height: 1; letter-spacing: -.11em; margin: 32px 0 31px -14px; position: relative; }
 .about-monogram > span { position: absolute; font-style: normal; font-family: "Pretendard", sans-serif; font-size: 48px; top: 8px; right: -38px; color: #9b7290; }
 .identity-bottom { border-top: var(--line); padding-top: 18px; display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; }
@@ -243,7 +243,16 @@ a.project-cover:hover { filter: saturate(1.15); }
 .about-copy h1 { max-width: 800px; font-size: clamp(2.55rem, 4.35vw, 4rem); line-height: 1.22; }
 .about-copy > p { margin-top: 21px; font-size: 16px; line-height: 1.85; }
 .skill-tags { display: flex; flex-wrap: wrap; gap: 9px; list-style: none; padding: 0; margin: 26px 0 0; }
-.skill-tags li { border: var(--line); border-radius: 30px; padding: 4px 14px; font-size: 13px; background: white; }
+.skill-tags li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; border: var(--line); border-radius: 30px; padding: 4px 12px 4px 6px; font-size: 13px; background: white; }
+.tool-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; border: 1px solid #22232130; border-radius: 50%; font-size: 9px; font-weight: 600; letter-spacing: -.02em; line-height: 1; }
+.tool-google { background: var(--yellow); }
+.tool-meta { background: var(--blue); }
+.tool-notion { color: white; background: var(--ink); }
+.tool-figma { background: var(--pink); }
+.tool-capcut { background: var(--lavender); }
+.tool-excel { background: #dcecdf; }
+.tool-canva { background: #dff3ef; }
+.tool-slack { background: #f5e6b9; }
 .about-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 30px; }
 .about-metric-card { display: flex; flex-direction: column; min-width: 0; min-height: 150px; border: var(--line); border-radius: 15px; padding: 18px; }
 .about-metric-card strong { font-size: 22px; line-height: 1.25; letter-spacing: -.045em; }
