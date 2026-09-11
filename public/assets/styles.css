@@ -544,12 +544,13 @@ html:not(.js) .contact-form { display: none; }
 .project-basic-meta dd { min-width: 0; padding-left: 4px; line-height: 1.7; }
 .always-visible { margin-top: 27px; border-top: 1px solid #22232140; padding-top: 2px; }
 .always-visible h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-.campaign-case-study { margin-top: 29px; border-top: 1px solid #22232140; padding-top: 28px; }
-.campaign-section-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
-.campaign-detail-section { min-width: 0; border: 1px solid #22232126; border-radius: 16px; padding: 24px; background: #fffdf7; }
-.campaign-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
-.campaign-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-.campaign-detail-section > p, .campaign-subsection p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+.campaign-case-study, .social-case-study, .barryway-case-study { margin-top: 29px; border-top: 1px solid #22232140; }
+.campaign-section-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 0; align-items: start; }
+.campaign-detail-section, .social-detail-section, .barryway-detail-section { min-width: 0; padding: 30px 0; border-bottom: 1px solid #2223212b; }
+.campaign-detail-section:last-child, .social-detail-section:last-child, .barryway-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
+.campaign-detail-section > .eyebrow, .social-detail-section > .eyebrow, .barryway-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
+.campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
+.campaign-detail-section > p, .social-detail-section > p, .barryway-detail-section > p, .campaign-subsection p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .campaign-subsection { margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .campaign-subsection h6, .campaign-output-card h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-action-list { display: grid; gap: 15px; margin-top: 14px; }
@@ -557,7 +558,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-action-list strong, .campaign-contribution > strong { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; }
 .campaign-action-list ul, .campaign-output-list { display: grid; gap: 5px; margin: 8px 0 0; padding-left: 18px; color: #555951; font-size: 14px; line-height: 1.7; }
 .campaign-my-action { border-radius: 12px; padding: 17px; background: var(--yellow); }
-.campaign-output-section { margin-top: 16px; background: white; }
+.campaign-output-section { margin-top: 0; }
 .campaign-output-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
 .campaign-output-card { min-width: 0; border: 1px solid #22232130; border-radius: 13px; padding: 20px; background: var(--blush); }
 .campaign-output-card:nth-child(2) { background: var(--blue); }
@@ -567,9 +568,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-video-list strong { font-size: 13px; font-weight: 600; }
 .campaign-video-list p { margin-top: 6px; font-size: 13px; }
 .campaign-contribution { margin-top: 18px; border-top: 1px solid #2223212e; padding-top: 15px; }
-.campaign-result-grid { margin-top: 16px; }
-.campaign-results { background: var(--blush); }
-.campaign-insights { background: var(--lavender); }
+.campaign-result-grid { margin-top: 0; }
 .campaign-table-scroll { max-width: 100%; margin-top: 18px; overflow-x: auto; border: 1px solid #22232138; border-radius: 11px; background: white; }
 .campaign-result-table { width: 100%; min-width: 500px; border-collapse: collapse; font-size: 12px; line-height: 1.55; }
 .campaign-result-table caption { padding: 12px 14px; border-bottom: 1px solid #22232130; text-align: left; font-size: 12px; font-weight: 600; }
@@ -591,14 +590,8 @@ html:not(.js) .contact-form { display: none; }
 .project-detail-flow > section > .eyebrow { margin-bottom: 10px; color: #766084; }
 .project-detail-flow > section > p { max-width: 760px; }
 .project-detail-flow .result-strip { max-width: 760px; margin-top: 18px; }
-#social .detail-cover-description { max-width: 760px; }
-.social-case-study { margin-top: 29px; border-top: 1px solid #22232140; padding-top: 28px; }
-.social-detail-section { min-width: 0; padding: 30px 0; border-bottom: 1px solid #2223212b; }
-.social-detail-section:first-child { padding-top: 0; }
-.social-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
-.social-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
-.social-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-.social-detail-section > p, .social-subsection p, .social-case-item > p, .social-analysis-limit p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+#social .detail-cover-description, #barryway .detail-cover-description { max-width: 760px; }
+.social-subsection p, .social-case-item > p, .social-analysis-limit p, .barryway-subsection p, .barryway-output-item > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .social-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .social-subsection h6, .social-case-item h6, .social-evidence-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .social-content-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; counter-reset: social-flow; }
@@ -620,18 +613,37 @@ html:not(.js) .contact-form { display: none; }
 .social-results-grid .social-secondary-result { grid-column: 1 / -1; background: #efedff; }
 .social-results-grid span, .social-results-grid small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .social-results-grid strong { display: block; margin: 7px 0; overflow-wrap: anywhere; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
-.social-evidence { display: grid; gap: 24px; max-width: 760px; margin-top: 28px; border-top: 1px solid #22232140; padding-top: 24px; }
+.social-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px; margin-top: 28px; border-top: 1px solid #22232140; padding-top: 24px; }
+.social-evidence-heading { grid-column: 1 / -1; }
 .social-evidence-heading p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.65; }
-.social-evidence-item { margin: 0; }
-.social-evidence-item a { display: block; width: fit-content; max-width: 100%; border: 1px solid #2223212b; border-radius: 14px; overflow: hidden; background: #f6f4f2; }
+.social-evidence-item { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; margin: 0; }
+.social-evidence-item a { display: inline-flex; width: auto; max-width: 100%; border: 1px solid #2223212b; border-radius: 14px; overflow: hidden; background: transparent; }
 .social-evidence-item a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 4px; }
-.social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; }
-.social-evidence-profile img { max-width: min(100%, 650px); }
-.social-evidence-insights img { max-width: min(100%, 470px); }
+.social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; max-height: 400px; object-fit: contain; }
 .social-evidence-item figcaption { margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
 .social-analysis-limit { max-width: 760px; margin-top: 22px; border: 1px solid #2223212b; border-radius: 12px; padding: 17px; background: var(--lavender); }
 .social-analysis-limit > strong { font-size: 14px; font-weight: 600; }
 .social-analysis-limit p { margin-top: 7px; font-size: 13px; }
+.barryway-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
+.barryway-subsection h6, .barryway-output-item h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.barryway-output-list { display: grid; gap: 14px; margin-top: 20px; }
+.barryway-output-item { min-width: 0; border: 1px solid #22232130; border-radius: 13px; padding: 22px; background: var(--blue); }
+.barryway-output-item:nth-child(2) { background: var(--yellow); }
+.barryway-output-item:nth-child(3) { background: var(--blush); }
+.barryway-output-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
+.barryway-video-figure { width: min(100%, 360px); margin: 18px 0 0; }
+.barryway-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 1px solid #22232130; border-radius: 13px; background: #1d1d1d; object-fit: contain; }
+.barryway-video-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.barryway-output-item dl { margin-top: 18px; }
+.barryway-output-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 12px; }
+.barryway-output-item dt { white-space: nowrap; color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.6; }
+.barryway-output-item dd { min-width: 0; font-size: 14px; line-height: 1.7; }
+.barryway-result-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
+.barryway-result-grid article { min-width: 0; border: 1px solid #2223212b; border-radius: 13px; padding: 18px; background: #e9f2f6; }
+.barryway-result-grid article:nth-child(2) { background: var(--yellow); }
+.barryway-result-grid article:nth-child(3) { background: var(--blush); }
+.barryway-result-grid span, .barryway-result-grid small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.barryway-result-grid strong { display: block; margin: 7px 0; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
 .education-section { background: white; border-bottom: var(--line); }
 .education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .education-card { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 32px; }
@@ -684,18 +696,20 @@ html:not(.js) .contact-form { display: none; }
   .project-basic-meta > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .project-basic-meta dd { padding-left: 0; }
   .always-visible h5 { font-size: 20px; }
-  .campaign-detail-section { padding: 20px; }
-  .campaign-detail-section h5 { font-size: 20px; }
+  .campaign-detail-section, .social-detail-section, .barryway-detail-section { padding: 24px 0; }
+  .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { font-size: 20px; }
   .campaign-output-grid, .campaign-video-list { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-card { padding: 17px; }
   .campaign-result-table { min-width: 470px; }
-  .social-detail-section { padding: 24px 0; }
-  .social-detail-section h5 { font-size: 20px; }
   .social-content-flow, .social-results-grid { grid-template-columns: minmax(0, 1fr); }
   .social-results-grid .social-secondary-result { grid-column: auto; }
   .social-case-item { padding: 18px; }
   .social-case-item dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
-  .social-evidence-insights img { max-width: 100%; }
+  .social-evidence { grid-template-columns: minmax(0, 1fr); }
+  .social-evidence-heading { grid-column: auto; }
+  .social-evidence-item img { max-height: 320px; }
+  .barryway-output-item { padding: 18px; }
+  .barryway-output-item dl > div, .barryway-result-grid { grid-template-columns: minmax(0, 1fr); }
   .education-card { padding: 24px; }
   .education-card h3 { font-size: 22px; }
   .resume-one-page .resume-section-heading h3 { font-size: 29px; }

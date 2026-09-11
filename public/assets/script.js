@@ -100,3 +100,12 @@ document.querySelectorAll("[data-copy-value]").forEach((button) => {
     }
   });
 });
+
+const mediaPlayers = [...document.querySelectorAll("video")];
+mediaPlayers.forEach((player) => {
+  player.addEventListener("play", () => {
+    mediaPlayers.forEach((otherPlayer) => {
+      if (otherPlayer !== player && !otherPlayer.paused) otherPlayer.pause();
+    });
+  });
+});
