@@ -82,16 +82,11 @@ a.project-cover:hover { filter: saturate(1.15); }
 .cover-title { position: relative; font-size: clamp(3.4rem, 5.6vw, 5.7rem); letter-spacing: -.085em; font-weight: 600; line-height: 1.07; margin-top: 42px; }
 .cover-spark { display: inline-block; margin-left: 20px; font-size: .72em; color: #9a7263; vertical-align: top; }
 .cover-dot { color: #ac715e; }
-.cover-caption { font-size: 14px; margin-top: 24px; letter-spacing: -.035em; }
 .cover-bottomline { margin-top: auto; padding-top: 35px; }
 .cover-bottomline > span:last-child { font-size: 27px; font-weight: 400; line-height: 1; }
 .cover-social { background: #f1ccd9; color: #39324a; }
 .cover-barryway { background: var(--blue); color: #333b3d; }
 .cover-additional { background: var(--lavender); color: #363342; }
-.placeholder-cover-title { margin-top: 48px; font-size: clamp(3.5rem, 7vw, 6.8rem); font-weight: 600; line-height: 1.08; letter-spacing: -.075em; }
-.placeholder-cover-title > span { color: #a77568; }
-.placeholder-cover-title-en { font-size: clamp(3.2rem, 6vw, 5.8rem); }
-.work-cover-title { max-width: 790px; margin-top: 35px; font-size: clamp(2.4rem, 4.25vw, 3.9rem); font-weight: 600; line-height: 1.2; letter-spacing: -.06em; }
 .social-cover-title { margin-top: 32px; font-size: clamp(2.1rem, 3.7vw, 3.65rem); font-weight: 500; line-height: 1.2; letter-spacing: -.065em; }
 .social-cover-title > span { font-family: "Pretendard", sans-serif; }
 .social-metric { display: flex; gap: 20px; align-items: flex-end; margin-top: 21px; }
@@ -157,7 +152,6 @@ a.project-cover:hover { filter: saturate(1.15); }
   .title-star { font-size: 24px; margin-left: 8px; }
   .cover-title { font-size: 64px; margin-top: 30px; }
   .cover-topline, .cover-bottomline { font-size: 12px; letter-spacing: .06em; }
-  .cover-caption { font-size: 12px; margin-top: 15px; }
   .cover-bottomline { padding-top: 24px; }
   .social-cover-title { font-size: 38px; margin-top: 27px; }
   .social-metric > strong { font-size: 75px; }
@@ -246,13 +240,16 @@ a.about-action-primary:hover { color: white; background: #383936; box-shadow: 3p
 .work-hero { background: var(--blush); padding-bottom: 185px; }
 .work-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 38px; max-width: 900px; margin-top: -90px; position: relative; align-items: start; }
 .work-card { background: white; border: var(--line); border-radius: var(--radius); overflow: hidden; scroll-margin-top: 30px; }
-.work-card .project-cover { border-bottom: var(--line); min-height: 410px; padding: 30px 35px; }
+.work-card .detail-project-cover { min-height: 0; border-bottom: var(--line); padding: 32px; }
+.detail-project-cover .detail-cover-label { display: block; font-size: .875rem; font-weight: 600; letter-spacing: .02em; line-height: 1.6; text-align: left; }
+.detail-cover-title { margin-top: 24px; font-size: 2.25rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.35; overflow-wrap: anywhere; word-break: keep-all; }
+.detail-cover-description { margin-top: 16px; font-size: 1.125rem; letter-spacing: -.02em; line-height: 1.6; overflow-wrap: anywhere; word-break: keep-all; }
+.detail-project-cover .cover-bottomline { margin-top: 24px; padding-top: 0; font-size: .75rem; font-weight: 600; letter-spacing: .06em; line-height: 1.6; }
 .work-card .cover-title { font-size: 77px; margin-top: 33px; }
 .work-card .social-cover-title { font-size: 46px; }
 .work-card .social-metric > strong { font-size: 93px; }
 .work-card-body { padding: 34px; }
-.work-card-body > .eyebrow { font-size: 12px; color: var(--muted); margin-bottom: 18px; }
-.work-card h2 { font-size: 30px; line-height: 1.4; }
+.work-card-body > h2 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; }
 .work-summary { margin-top: 21px; font-size: 16px; line-height: 1.8; }
 .project-meta { margin: 27px 0; display: grid; gap: 15px; font-size: 14px; }
 .project-meta > div { display: grid; grid-template-columns: 77px 1fr; gap: 12px; align-items: baseline; }
@@ -392,15 +389,16 @@ html:not(.js) .contact-form { display: none; }
   .page-hero p br { display: none; }
   .work-hero { padding-bottom: 120px; }
   .work-grid { grid-template-columns: 1fr; gap: 27px; margin-top: -60px; }
-  .work-card .project-cover { min-height: 335px; padding: 24px; }
+  .work-card .detail-project-cover { min-height: 0; padding: 24px; }
+  .detail-project-cover .detail-cover-label { font-size: .75rem; }
+  .detail-cover-title { margin-top: 20px; font-size: 1.625rem; }
+  .detail-cover-description { margin-top: 16px; font-size: 1rem; }
+  .detail-project-cover .cover-bottomline { margin-top: 24px; }
   .work-card .cover-title { font-size: 64px; margin-top: 28px; }
   .work-card .social-cover-title { font-size: 38px; }
   .work-card .social-metric > strong { font-size: 75px; }
-  .work-card .placeholder-cover-title { margin-top: 42px; font-size: 54px; }
-  .work-card .work-cover-title { margin-top: 28px; font-size: 31px; line-height: 1.32; letter-spacing: -.045em; }
   .work-card-body { padding: 28px 23px; }
-  .work-card-body > .eyebrow { font-size: 12px; letter-spacing: .065em; }
-  .work-card h2 { font-size: 26px; }
+  .work-card-body > h2 { font-size: 1.25rem; }
   .project-meta { font-size: 13px; }
   .project-meta > div { grid-template-columns: 72px 1fr; gap: 9px; }
   .project-meta dt { font-size: 12px; }
