@@ -33,31 +33,6 @@ if (menuButton && navigation) {
   });
 }
 
-const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const revealElements = [...document.querySelectorAll("[data-reveal]")];
-if ("IntersectionObserver" in window && !reducedMotion.matches && revealElements.length) {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove("reveal-ready");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.05 });
-  revealElements.forEach((element) => {
-    if (element.getBoundingClientRect().top > window.innerHeight) {
-      element.classList.add("reveal-ready");
-    }
-    observer.observe(element);
-  });
-  reducedMotion.addEventListener("change", () => {
-    if (reducedMotion.matches) {
-      observer.disconnect();
-      revealElements.forEach((element) => element.classList.remove("reveal-ready"));
-    }
-  });
-}
-
 function openLinkedProject() {
   const target = document.getElementById(window.location.hash.slice(1));
   const details = target?.closest(".case-study") || target?.querySelector(".case-study");
