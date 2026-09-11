@@ -180,6 +180,10 @@ a.project-cover:hover { filter: saturate(1.15); }
 .skill-tags li { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; border: var(--line); border-radius: 30px; padding: 4px 12px 4px 6px; font-size: 13px; background: white; }
 .tool-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; border-radius: 7px; line-height: 1; }
 .tool-icon img { display: block; width: 14px; height: 14px; filter: brightness(0) invert(1); }
+.tool-icon-color { border: 1px solid #22232126; background: white; }
+.tool-icon-color img { width: 16px; height: 16px; object-fit: contain; filter: none; }
+.tool-flow img { width: 17px; height: 14px; }
+.tool-sheets img { width: 12px; height: 17px; }
 .tool-google { background: #e37400; }
 .tool-meta { background: #0866ff; }
 .tool-notion { color: white; background: var(--ink); }
