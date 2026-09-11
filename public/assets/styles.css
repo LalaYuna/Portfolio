@@ -539,10 +539,13 @@ html:not(.js) .contact-form { display: none; }
 .one-page-work-grid .work-card { scroll-margin-top: 118px; }
 .one-page-work-grid .work-card-body > h4 { font-size: 1.5rem; font-weight: 600; line-height: 1.4; letter-spacing: -.045em; }
 .one-page-work-grid .detail-cover-title { margin-block: 24px 0; }
+.project-basic-meta > div { grid-template-columns: 124px minmax(0, 1fr); align-items: start; }
+.project-basic-meta dt { font-size: 11px; line-height: 1.6; white-space: nowrap; }
+.project-basic-meta dd { min-width: 0; padding-left: 4px; line-height: 1.7; }
 .always-visible { margin-top: 27px; border-top: 1px solid #22232140; padding-top: 2px; }
 .always-visible h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
 .campaign-case-study { margin-top: 29px; border-top: 1px solid #22232140; padding-top: 28px; }
-.campaign-section-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.campaign-section-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-items: start; }
 .campaign-detail-section { min-width: 0; border: 1px solid #22232126; border-radius: 16px; padding: 24px; background: #fffdf7; }
 .campaign-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
 .campaign-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
@@ -564,7 +567,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-video-list strong { font-size: 13px; font-weight: 600; }
 .campaign-video-list p { margin-top: 6px; font-size: 13px; }
 .campaign-contribution { margin-top: 18px; border-top: 1px solid #2223212e; padding-top: 15px; }
-.campaign-result-grid { grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); margin-top: 16px; }
+.campaign-result-grid { margin-top: 16px; }
 .campaign-results { background: var(--blush); }
 .campaign-insights { background: var(--lavender); }
 .campaign-table-scroll { max-width: 100%; margin-top: 18px; overflow-x: auto; border: 1px solid #22232138; border-radius: 11px; background: white; }
@@ -578,8 +581,16 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-notes { display: grid; gap: 5px; margin-top: 14px; }
 .campaign-result-notes p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .campaign-result-notes strong { font-weight: 600; }
-.campaign-insight-item + .campaign-insight-item { margin-top: 21px; border-top: 1px solid #2223212b; padding-top: 19px; }
-.campaign-insight-item h5 { font-size: 17px; }
+.campaign-insight-list { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: #555951; font-size: 15px; line-height: 1.75; }
+.campaign-insight-limit { margin-top: 22px; border-top: 1px solid #2223212b; padding-top: 18px; }
+.campaign-insight-limit > strong { font-size: 14px; font-weight: 600; }
+.campaign-insight-limit > p { margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.project-detail-flow > section { padding: 30px 0; border-bottom: 1px solid #2223212b; }
+.project-detail-flow > section:first-child { padding-top: 28px; }
+.project-detail-flow > section:last-child { border-bottom: 0; padding-bottom: 0; }
+.project-detail-flow > section > .eyebrow { margin-bottom: 10px; color: #766084; }
+.project-detail-flow > section > p { max-width: 760px; }
+.project-detail-flow .result-strip { max-width: 760px; margin-top: 18px; }
 .education-section { background: white; border-bottom: var(--line); }
 .education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .education-card { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 32px; }
@@ -612,7 +623,6 @@ html:not(.js) .contact-form { display: none; }
   .one-page-site .about-identity { max-width: 300px; }
   .skills-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .skills-category:last-child { grid-column: 1 / -1; }
-  .campaign-section-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 767px) {
@@ -630,6 +640,8 @@ html:not(.js) .contact-form { display: none; }
   .skills-category:last-child { grid-column: auto; }
   .one-page-work-grid { gap: 30px; }
   .one-page-work-grid .work-card-body > h4 { font-size: 1.25rem; }
+  .project-basic-meta > div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .project-basic-meta dd { padding-left: 0; }
   .always-visible h5 { font-size: 20px; }
   .campaign-detail-section { padding: 20px; }
   .campaign-detail-section h5 { font-size: 20px; }
@@ -649,4 +661,5 @@ html:not(.js) .contact-form { display: none; }
   .one-page-header .menu-toggle { font-size: 14px; }
   .one-page-site .about-copy h1 { font-size: 31px; }
   .one-page-work-grid .project-meta > div { grid-template-columns: 62px minmax(0, 1fr); }
+  .one-page-work-grid .project-basic-meta > div { grid-template-columns: minmax(0, 1fr); }
 }
