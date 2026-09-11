@@ -2,6 +2,24 @@
 
 document.documentElement.classList.add("js");
 
+const legacyPage = document.body.dataset.legacyPage;
+if (legacyPage) {
+  const workTargets = new Set([
+    "campaign",
+    "social",
+    "barryway",
+    "additional-work",
+    "petfriends-card-news",
+    "data-analysis",
+  ]);
+  let target = legacyPage === "resume" ? "resume" : legacyPage === "contact" ? "contact" : "projects";
+  const requestedHash = window.location.hash.slice(1);
+  if (legacyPage === "work" && workTargets.has(requestedHash)) target = requestedHash;
+  if (legacyPage === "resume" && requestedHash === "resume-education") target = "education";
+  if (legacyPage === "resume" && requestedHash === "resume-languages") target = "resume";
+  window.location.replace("./index.html#" + target);
+}
+
 const menuButton = document.querySelector(".menu-toggle");
 const navigation = document.querySelector(".site-nav");
 const desktop = window.matchMedia("(min-width: 768px)");
@@ -24,61 +42,61 @@ if (menuButton && navigation) {
     if (event.target.closest("a")) closeMenu();
   });
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") {
-      closeMenu(true);
-    }
+    if (event.key === "Escape" && menuButton.getAttribute("aria-expanded") === "true") closeMenu(true);
   });
   desktop.addEventListener("change", () => {
     if (desktop.matches) closeMenu();
   });
 }
 
-function openLinkedProject() {
-  const target = document.getElementById(window.location.hash.slice(1));
-  const details = target?.closest(".case-study") || target?.querySelector(".case-study");
-  if (details) details.open = true;
-}
-openLinkedProject();
-window.addEventListener("hashchange", openLinkedProject);
+const sectionLinks = [...document.querySelectorAll("[data-section-link]")];
+const observedSections = [...document.querySelectorAll("[data-nav-section]")];
 
-const contactForm = document.querySelector("[data-contact-form]");
-if (contactForm) {
-  const fields = [...contactForm.querySelectorAll("input, textarea")];
-  const status = contactForm.querySelector("[data-form-status]");
-  const submitButton = contactForm.querySelector('button[type="submit"]');
-  const recipient = "yuna12s@naver.com";
-
-  fields.forEach((field) => {
-    field.addEventListener("input", () => {
-      field.setCustomValidity("");
-      status.textContent = "";
-    });
+function setCurrentSection(sectionId) {
+  sectionLinks.forEach((link) => {
+    if (link.dataset.sectionLink === sectionId) link.setAttribute("aria-current", "location");
+    else link.removeAttribute("aria-current");
   });
+}
 
-  contactForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    fields.forEach((field) => {
-      field.setCustomValidity("");
-      if (!field.value.trim()) {
-        field.setCustomValidity("공백을 제외한 내용을 입력해 주세요.");
-      } else if (field.maxLength > 0 && field.value.length > field.maxLength) {
-        field.setCustomValidity("입력 가능한 길이를 초과했습니다.");
-      }
+if (sectionLinks.length && observedSections.length && "IntersectionObserver" in window) {
+  const visibleSections = new Map();
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) visibleSections.set(entry.target.id, entry.boundingClientRect.top);
+      else visibleSections.delete(entry.target.id);
     });
-    if (!contactForm.reportValidity()) {
-      status.textContent = "입력한 항목을 확인해 주세요.";
-      return;
+    const current = [...visibleSections.entries()].sort((a, b) => Math.abs(a[1]) - Math.abs(b[1]))[0];
+    if (current) setCurrentSection(current[0]);
+  }, { rootMargin: "-22% 0px -62% 0px", threshold: 0 });
+  observedSections.forEach((section) => observer.observe(section));
+}
+
+async function copyText(value) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+  const helper = document.createElement("textarea");
+  helper.value = value;
+  helper.setAttribute("readonly", "");
+  helper.style.position = "fixed";
+  helper.style.opacity = "0";
+  document.body.appendChild(helper);
+  helper.select();
+  const copied = document.execCommand("copy");
+  helper.remove();
+  if (!copied) throw new Error("copy failed");
+}
+
+const copyStatus = document.querySelector("[data-copy-status]");
+document.querySelectorAll("[data-copy-value]").forEach((button) => {
+  button.addEventListener("click", async () => {
+    try {
+      await copyText(button.dataset.copyValue);
+      if (copyStatus) copyStatus.textContent = button.dataset.copyLabel + "를 복사했습니다.";
+    } catch {
+      if (copyStatus) copyStatus.textContent = "복사하지 못했습니다. 표시된 주소를 직접 선택해 복사해 주세요.";
     }
-
-    const senderName = contactForm.elements.namedItem("name").value.trim().replace(/[\r\n]+/g, " ");
-    const senderEmail = contactForm.elements.namedItem("email").value.trim();
-    const message = contactForm.elements.namedItem("message").value.trim();
-    const subject = "[포트폴리오 문의] " + senderName;
-    const body = "이름: " + senderName + "\n회신 이메일: " + senderEmail + "\n\n" + message;
-    const mailto = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-
-    status.textContent = "메일 앱에서 내용을 확인한 뒤 전송해 주세요. 앱이 열리지 않으면 위 이메일 주소로 직접 작성하실 수 있습니다.";
-    window.location.assign(mailto);
   });
-  submitButton.disabled = false;
-}
+});
