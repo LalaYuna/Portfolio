@@ -632,7 +632,7 @@ html:not(.js) .contact-form { display: none; }
 .barryway-output-item:nth-child(3) { background: var(--blush); }
 .barryway-output-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
 .barryway-video-figure { width: min(100%, 360px); margin: 18px 0 0; }
-.barryway-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 1px solid #22232130; border-radius: 13px; background: #1d1d1d; object-fit: contain; }
+.barryway-video-figure video { display: block; width: 100%; max-width: 100%; height: auto; border: 0; border-radius: 13px; background: transparent; object-fit: contain; }
 .barryway-video-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .barryway-output-item dl { margin-top: 18px; }
 .barryway-output-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 12px; }
