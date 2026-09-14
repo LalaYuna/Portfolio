@@ -644,6 +644,57 @@ html:not(.js) .contact-form { display: none; }
 .barryway-result-grid article:nth-child(3) { background: var(--blush); }
 .barryway-result-grid span, .barryway-result-grid small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .barryway-result-grid strong { display: block; margin: 7px 0; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
+.additional-work-body { padding-top: 0; }
+.additional-work-flow { display: grid; gap: 0; }
+.additional-task { min-width: 0; padding-top: 34px; }
+.additional-task + .additional-task { margin-top: 54px; border-top: 2px solid #22232180; padding-top: 50px; }
+.additional-task-header { padding-bottom: 28px; border-bottom: 1px solid #22232140; }
+.additional-task-header > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
+.additional-task-header h4 { margin: 0; overflow-wrap: break-word; font-size: 28px; font-weight: 600; line-height: 1.4; letter-spacing: -.045em; }
+.additional-task-header p { max-width: 760px; margin-top: 13px; color: #555951; font-size: 15px; line-height: 1.8; }
+.additional-basic-section { padding: 28px 0 30px; border-bottom: 1px solid #2223212b; }
+.additional-basic-section h5, .additional-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
+.additional-basic-section .project-basic-meta { margin-top: 18px; }
+.additional-task .project-basic-meta > div { grid-template-columns: 132px minmax(0, 1fr); }
+.additional-task .project-basic-meta dt { white-space: nowrap; }
+.additional-detail-section { min-width: 0; padding: 30px 0; border-bottom: 1px solid #2223212b; }
+.additional-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
+.additional-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
+.additional-detail-section > p, .additional-subsection p, .data-output-case > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+.additional-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
+.additional-subsection-first { border-top: 0; padding-top: 0; }
+.additional-subsection h6, .data-output-case h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.additional-flow-list { display: grid; gap: 9px; max-width: 760px; margin: 18px 0 0; padding: 0; list-style: none; counter-reset: additional-flow; }
+.additional-flow-list li { display: grid; grid-template-columns: 62px minmax(0, 1fr); gap: 10px; align-items: start; border-top: 1px solid #22232126; padding-top: 10px; color: #555951; font-size: 14px; line-height: 1.7; }
+.additional-flow-list strong { color: var(--text); font-weight: 600; white-space: nowrap; }
+.additional-note-list { display: grid; gap: 7px; margin: 10px 0 0; padding-left: 20px; color: #555951; font-size: 14px; line-height: 1.75; }
+.additional-note-list strong { font-weight: 600; }
+.petfriends-featured-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 20px; }
+.petfriends-featured-gallery figure { min-width: 0; margin: 0; }
+.petfriends-featured-gallery a, .petfriends-thumbnail-list a, .data-table-figure a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
+.petfriends-featured-gallery a:focus-visible, .petfriends-thumbnail-list a:focus-visible, .data-table-figure a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 3px; }
+.petfriends-featured-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
+.petfriends-featured-gallery figcaption, .data-table-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.petfriends-thumbnail-list { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin-top: 13px; }
+.petfriends-thumbnail-list a { position: relative; min-width: 0; }
+.petfriends-thumbnail-list img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
+.petfriends-thumbnail-list span { position: absolute; right: 5px; bottom: 5px; border-radius: 20px; padding: 2px 6px; background: #222321d9; color: white; font-size: 10px; line-height: 1.4; }
+.additional-caption-copy { margin-top: 12px; border-left: 2px solid #766084; padding-left: 16px; }
+.additional-caption-copy p { margin-top: 9px; }
+.additional-caption-copy p:first-child { margin-top: 0; color: var(--text); font-weight: 600; }
+.additional-caption-copy .additional-caption-tags { color: #766084; font-size: 13px; }
+.data-output-list { display: grid; gap: 28px; margin-top: 20px; }
+.data-output-case { min-width: 0; border-top: 1px solid #22232130; padding-top: 20px; }
+.data-output-case:first-child { border-top: 0; padding-top: 0; }
+.data-output-case > span { display: block; margin-bottom: 8px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
+.data-table-figure { max-width: 100%; margin: 16px 0 0; }
+.data-table-figure a { padding: 10px; }
+.data-table-figure img { display: block; width: 100%; height: auto; object-fit: contain; }
+.data-result-list { display: grid; gap: 8px; margin-top: 16px; }
+.data-result-list > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; border-top: 1px solid #22232126; padding-top: 10px; }
+.data-result-list dt { color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.6; }
+.data-result-list dd { min-width: 0; font-size: 14px; line-height: 1.7; }
+.additional-limit-note { border-radius: 10px; padding: 13px 15px; background: var(--lavender); font-size: 13px !important; }
 .education-section { background: white; border-bottom: var(--line); }
 .education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
 .education-card { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 32px; }
@@ -710,6 +761,15 @@ html:not(.js) .contact-form { display: none; }
   .social-evidence-item img { max-height: 320px; }
   .barryway-output-item { padding: 18px; }
   .barryway-output-item dl > div, .barryway-result-grid { grid-template-columns: minmax(0, 1fr); }
+  .additional-task { padding-top: 28px; }
+  .additional-task + .additional-task { margin-top: 40px; padding-top: 38px; }
+  .additional-task-header h4 { font-size: 24px; }
+  .additional-task .project-basic-meta > div, .data-result-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .additional-detail-section { padding: 24px 0; }
+  .additional-basic-section h5, .additional-detail-section h5 { font-size: 20px; }
+  .petfriends-featured-gallery { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .petfriends-thumbnail-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .data-table-figure a { padding: 6px; }
   .education-card { padding: 24px; }
   .education-card h3 { font-size: 22px; }
   .resume-one-page .resume-section-heading h3 { font-size: 29px; }
