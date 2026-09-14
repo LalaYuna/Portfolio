@@ -542,11 +542,6 @@ html:not(.js) .contact-form { display: none; }
 .project-basic-meta > div { grid-template-columns: 124px minmax(0, 1fr); align-items: start; }
 .project-basic-meta dt { font-size: 11px; line-height: 1.6; white-space: nowrap; }
 .project-basic-meta dd { min-width: 0; padding-left: 4px; line-height: 1.7; }
-.campaign-overview { max-width: 760px; margin-top: 15px; }
-.campaign-overview > p, .campaign-overview-method p { margin: 0; color: #555951; font-size: 16px; font-weight: 400; line-height: 1.8; }
-.campaign-overview strong { font-weight: 600; }
-.campaign-overview-method { margin-top: 18px; border-top: 1px solid #22232126; padding-top: 16px; }
-.campaign-overview-method h5 { margin: 0 0 7px; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .always-visible { margin-top: 27px; border-top: 1px solid #22232140; padding-top: 2px; }
 .always-visible h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
 .campaign-case-study, .social-case-study, .barryway-case-study { margin-top: 29px; border-top: 1px solid #22232140; }
