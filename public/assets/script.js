@@ -109,3 +109,98 @@ mediaPlayers.forEach((player) => {
     });
   });
 });
+
+document.querySelectorAll("[data-petfriends-carousel]").forEach((carousel) => {
+  const track = carousel.querySelector("[data-carousel-track]");
+  const viewport = carousel.querySelector("[data-carousel-viewport]");
+  const slides = [...carousel.querySelectorAll("[data-carousel-slide]")];
+  const previousButton = carousel.querySelector("[data-carousel-prev]");
+  const nextButton = carousel.querySelector("[data-carousel-next]");
+  const controls = carousel.querySelector("[data-carousel-controls]");
+  const status = carousel.querySelector("[data-carousel-status]");
+  const dots = [...carousel.querySelectorAll("[data-carousel-dot]")];
+  const originalLink = carousel.querySelector("[data-carousel-original]");
+  if (!track || !viewport || !slides.length || !previousButton || !nextButton || !controls) return;
+
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let suppressSlideClick = false;
+
+  function showSlide(requestedIndex) {
+    const nextIndex = Math.max(0, Math.min(requestedIndex, slides.length - 1));
+    currentIndex = nextIndex;
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+    previousButton.disabled = currentIndex === 0;
+    nextButton.disabled = currentIndex === slides.length - 1;
+    if (status) status.textContent = `${currentIndex + 1} / ${slides.length}`;
+
+    slides.forEach((slide, index) => {
+      const active = index === currentIndex;
+      slide.setAttribute("aria-hidden", String(!active));
+      slide.querySelectorAll("a, button").forEach((element) => {
+        element.tabIndex = active ? 0 : -1;
+      });
+    });
+
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+
+    const currentImageLink = slides[currentIndex].querySelector("a[href]");
+    if (originalLink && currentImageLink) {
+      originalLink.setAttribute("href", currentImageLink.getAttribute("href"));
+      originalLink.setAttribute("aria-label", `${currentIndex + 1}번째 이미지 원본 보기`);
+    }
+  }
+
+  previousButton.hidden = false;
+  nextButton.hidden = false;
+  controls.hidden = false;
+  showSlide(0);
+
+  previousButton.addEventListener("click", () => showSlide(currentIndex - 1));
+  nextButton.addEventListener("click", () => showSlide(currentIndex + 1));
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => showSlide(Number(dot.dataset.carouselDot)));
+  });
+
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showSlide(currentIndex - 1);
+    }
+    if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showSlide(currentIndex + 1);
+    }
+  });
+
+  viewport.addEventListener("touchstart", (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+    suppressSlideClick = false;
+  }, { passive: true });
+
+  viewport.addEventListener("touchend", (event) => {
+    const touch = event.changedTouches[0];
+    const distanceX = touch.clientX - touchStartX;
+    const distanceY = touch.clientY - touchStartY;
+    const horizontalSwipe = Math.abs(distanceX) >= 44 && Math.abs(distanceX) > Math.abs(distanceY) * 1.2;
+    if (!horizontalSwipe) return;
+
+    suppressSlideClick = true;
+    if (distanceX < 0) showSlide(currentIndex + 1);
+    else showSlide(currentIndex - 1);
+    window.setTimeout(() => { suppressSlideClick = false; }, 300);
+  }, { passive: true });
+
+  viewport.addEventListener("click", (event) => {
+    if (!suppressSlideClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+    suppressSlideClick = false;
+  }, true);
+});

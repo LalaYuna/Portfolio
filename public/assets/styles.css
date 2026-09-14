@@ -669,16 +669,32 @@ html:not(.js) .contact-form { display: none; }
 .additional-flow-list strong { color: var(--text); font-weight: 600; white-space: nowrap; }
 .additional-note-list { display: grid; gap: 7px; margin: 10px 0 0; padding-left: 20px; color: #555951; font-size: 14px; line-height: 1.75; }
 .additional-note-list strong { font-weight: 600; }
-.petfriends-featured-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 20px; }
-.petfriends-featured-gallery figure { min-width: 0; margin: 0; }
-.petfriends-featured-gallery a, .petfriends-thumbnail-list a, .data-table-figure a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
-.petfriends-featured-gallery a:focus-visible, .petfriends-thumbnail-list a:focus-visible, .data-table-figure a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 3px; }
-.petfriends-featured-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
-.petfriends-featured-gallery figcaption, .data-table-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
-.petfriends-thumbnail-list { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 8px; margin-top: 13px; }
-.petfriends-thumbnail-list a { position: relative; min-width: 0; }
-.petfriends-thumbnail-list img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
-.petfriends-thumbnail-list span { position: absolute; right: 5px; bottom: 5px; border-radius: 20px; padding: 2px 6px; background: #222321d9; color: white; font-size: 10px; line-height: 1.4; }
+.petfriends-carousel { max-width: 650px; margin: 24px auto 0; }
+.petfriends-carousel-heading { width: min(100%, 520px); margin: 0 auto 15px; }
+.petfriends-carousel-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.petfriends-carousel-heading p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.petfriends-carousel-stage { display: grid; grid-template-columns: 48px minmax(0, 520px) 48px; justify-content: center; align-items: center; gap: 12px; }
+.petfriends-carousel-viewport { min-width: 0; width: 100%; }
+.petfriends-carousel-track { display: grid; gap: 24px; }
+.petfriends-carousel-slide { min-width: 0; margin: 0; }
+.petfriends-carousel-slide a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
+.petfriends-carousel-slide a:focus-visible, .petfriends-carousel-arrow:focus-visible, .petfriends-carousel-dots button:focus-visible, .petfriends-carousel-original:focus-visible, .data-table-figure a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 3px; }
+.petfriends-carousel-slide img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
+.petfriends-carousel-slide figcaption, .data-table-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.js .petfriends-carousel-viewport { overflow: hidden; touch-action: pan-y pinch-zoom; }
+.js .petfriends-carousel-track { display: flex; gap: 0; transition: transform .28s ease; will-change: transform; }
+.js .petfriends-carousel-slide { flex: 0 0 100%; width: 100%; }
+.petfriends-carousel-arrow { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border: 1px solid #22232170; border-radius: 50%; background: var(--yellow); color: var(--text); font-size: 22px; line-height: 1; transition: background .2s, opacity .2s, transform .2s; }
+.petfriends-carousel-arrow:hover:not(:disabled) { background: #f4e4a6; transform: translateY(-1px); }
+.petfriends-carousel-arrow:disabled { cursor: not-allowed; opacity: .35; }
+.petfriends-carousel-controls { display: grid; justify-items: center; gap: 10px; width: min(100%, 520px); margin: 13px auto 0; }
+.petfriends-carousel-count { min-width: 48px; color: var(--text); font-size: 13px; font-weight: 600; line-height: 1.5; text-align: center; }
+.petfriends-carousel-dots { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; }
+.petfriends-carousel-dots button { position: relative; width: 28px; height: 28px; border: 0; border-radius: 50%; background: transparent; }
+.petfriends-carousel-dots button::before { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; transform: translate(-50%, -50%); border: 1px solid #766084; border-radius: 50%; background: white; content: ""; transition: width .2s, background .2s; }
+.petfriends-carousel-dots button[aria-current="true"]::before { width: 18px; border-radius: 10px; background: #766084; }
+.petfriends-carousel-original { border-bottom: 1px solid currentColor; padding-bottom: 2px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.data-table-figure a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
 .additional-caption-copy { margin-top: 12px; border-left: 2px solid #766084; padding-left: 16px; }
 .additional-caption-copy p { margin-top: 9px; }
 .additional-caption-copy p:first-child { margin-top: 0; color: var(--text); font-weight: 600; }
@@ -767,8 +783,6 @@ html:not(.js) .contact-form { display: none; }
   .additional-task .project-basic-meta > div, .data-result-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .additional-detail-section { padding: 24px 0; }
   .additional-basic-section h5, .additional-detail-section h5 { font-size: 20px; }
-  .petfriends-featured-gallery { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .petfriends-thumbnail-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .data-table-figure a { padding: 6px; }
   .education-card { padding: 24px; }
   .education-card h3 { font-size: 22px; }
@@ -776,6 +790,16 @@ html:not(.js) .contact-form { display: none; }
   .resume-one-page .resume-item-content h4 { font-size: 20px; }
   .legacy-card { padding: 30px 22px; }
   .legacy-card h1 { font-size: 29px; }
+}
+
+@media (max-width: 560px) {
+  .petfriends-carousel { max-width: 100%; }
+  .petfriends-carousel-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: auto 44px; gap: 10px 8px; }
+  .petfriends-carousel-viewport { grid-column: 1 / -1; grid-row: 1; }
+  .petfriends-carousel-arrow { width: 44px; height: 44px; }
+  .petfriends-carousel-prev { grid-column: 1; grid-row: 2; justify-self: end; }
+  .petfriends-carousel-next { grid-column: 2; grid-row: 2; justify-self: start; }
+  .petfriends-carousel-controls { margin-top: 10px; }
 }
 
 @media (max-width: 360px) {
