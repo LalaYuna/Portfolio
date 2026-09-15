@@ -554,20 +554,33 @@ html:not(.js) .contact-form { display: none; }
 .campaign-detail-section > .eyebrow, .social-detail-section > .eyebrow, .barryway-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
 .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
 #campaign .campaign-section-title { margin: 0 0 20px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
-.campaign-detail-section > p, .social-detail-section > p, .barryway-detail-section > p, .campaign-subsection p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
-.campaign-subsection { margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
-.campaign-subsection h6, .campaign-output-card h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.campaign-detail-section > p, .social-detail-section > p, .barryway-detail-section > p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+.campaign-output-card h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-topic-list { display: grid; gap: 0; }
 .campaign-topic-list > div { padding: 21px 0; border-top: 1px solid #22232126; }
 .campaign-topic-list > div:first-child { padding-top: 0; border-top: 0; }
 .campaign-topic-list h5 { margin: 0; font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-topic-list p { max-width: 760px; margin: 8px 0 0; color: #555951; font-size: 16px; font-weight: 400; line-height: 1.7; }
 .campaign-detail-section > .campaign-topic-summary { max-width: 760px; margin-top: 5px; border-top: 1px solid #22232126; padding-top: 20px; color: #4f405b; font-size: 16px; font-weight: 600; line-height: 1.7; }
-.campaign-action-list { display: grid; gap: 15px; margin-top: 14px; }
-.campaign-action-list > div { border-radius: 11px; padding: 15px; background: #f8f3df; }
-.campaign-action-list strong, .campaign-contribution > strong { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; }
-.campaign-action-list ul, .campaign-output-list { display: grid; gap: 5px; margin: 8px 0 0; padding-left: 18px; color: #555951; font-size: 14px; line-height: 1.7; }
-.campaign-my-action { border-radius: 12px; padding: 17px; background: var(--yellow); }
+.campaign-action-step + .campaign-action-step { margin-top: 25px; border-top: 1px solid #22232126; padding-top: 22px; }
+#campaign .campaign-action-step > h5 { font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.campaign-action-step > p, .campaign-execution-item > p { max-width: 760px; margin: 10px 0 0; color: #555951; font-size: 15px; line-height: 1.8; }
+.campaign-action-step p strong { color: var(--ink); font-weight: 600; }
+.campaign-my-execution { border-left: 3px solid #766084; padding-left: 20px; }
+.campaign-execution-item { margin-top: 18px; }
+.campaign-execution-item + .campaign-execution-item { border-top: 1px solid #22232120; padding-top: 18px; }
+.campaign-execution-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 10px 18px; }
+.campaign-execution-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.campaign-execution-heading span { flex: 0 0 auto; border-radius: 20px; padding: 3px 9px; color: #51435e; background: var(--lavender); font-size: 11px; font-weight: 600; line-height: 1.5; white-space: nowrap; }
+.campaign-action-table-wrap { max-width: 760px; margin-top: 17px; overflow: hidden; border: 1px solid #22232130; border-radius: 11px; background: white; }
+.campaign-action-table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 13px; line-height: 1.65; }
+.campaign-action-table th, .campaign-action-table td { padding: 12px 13px; border-bottom: 1px solid #22232120; text-align: left; vertical-align: top; overflow-wrap: anywhere; word-break: keep-all; }
+.campaign-action-table thead th { background: #f7f3f0; font-weight: 600; }
+.campaign-action-table th:first-child { width: 122px; font-weight: 600; }
+.campaign-action-table tbody tr:last-child th, .campaign-action-table tbody tr:last-child td { border-bottom: 0; }
+.campaign-action-note { border-left: 2px solid #766084; padding-left: 12px; font-size: 13px !important; }
+.campaign-contribution > strong { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; }
+.campaign-output-list { display: grid; gap: 5px; margin: 8px 0 0; padding-left: 18px; color: #555951; font-size: 14px; line-height: 1.7; }
 .campaign-output-section { margin-top: 0; scroll-margin-top: 118px; }
 .campaign-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; align-items: start; }
 .campaign-media-item { min-width: 0; border: 1px solid #22232130; border-radius: 13px; padding: 16px; background: var(--blush); }
@@ -799,6 +812,12 @@ html:not(.js) .contact-form { display: none; }
   #campaign .campaign-section-title { font-size: 1.375rem; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
+  #campaign .campaign-action-step > h5 { font-size: 17px; }
+  .campaign-my-execution { padding-left: 15px; }
+  .campaign-execution-heading { align-items: flex-start; flex-direction: column; gap: 6px; }
+  .campaign-action-table { font-size: 12px; }
+  .campaign-action-table th, .campaign-action-table td { padding: 10px 9px; }
+  .campaign-action-table th:first-child { width: 82px; }
   .campaign-media-grid { grid-template-columns: minmax(0, 1fr); }
   .campaign-media-item h6 { min-height: 0; }
   .campaign-output-grid, .campaign-video-list { grid-template-columns: minmax(0, 1fr); }
