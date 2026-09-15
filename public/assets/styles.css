@@ -542,6 +542,9 @@ html:not(.js) .contact-form { display: none; }
 .project-basic-meta > div { grid-template-columns: 124px minmax(0, 1fr); align-items: start; }
 .project-basic-meta dt { font-size: 11px; line-height: 1.6; white-space: nowrap; }
 .project-basic-meta dd { min-width: 0; padding-left: 4px; line-height: 1.7; }
+.campaign-process { max-width: 760px; }
+.campaign-process h5 { margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.025em; line-height: 1.55; }
+.campaign-process p { margin: 8px 0 0; color: #555951; font-size: 15px; line-height: 1.8; }
 .always-visible { margin-top: 27px; border-top: 1px solid #22232140; padding-top: 2px; }
 .always-visible h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
 .campaign-case-study, .social-case-study, .barryway-case-study { margin-top: 29px; border-top: 1px solid #22232140; }
@@ -550,7 +553,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-detail-section:last-child, .social-detail-section:last-child, .barryway-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
 .campaign-detail-section > .eyebrow, .social-detail-section > .eyebrow, .barryway-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
 .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-.campaign-detail-section > .campaign-section-title { margin: 0 0 20px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
+#campaign .campaign-section-title { margin: 0 0 20px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
 .campaign-detail-section > p, .social-detail-section > p, .barryway-detail-section > p, .campaign-subsection p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .campaign-subsection { margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .campaign-subsection h6, .campaign-output-card h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
@@ -793,7 +796,7 @@ html:not(.js) .contact-form { display: none; }
   .always-visible h5 { font-size: 20px; }
   .campaign-detail-section, .social-detail-section, .barryway-detail-section { padding: 24px 0; }
   .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { font-size: 20px; }
-  .campaign-detail-section > .campaign-section-title { font-size: 1.375rem; }
+  #campaign .campaign-section-title { font-size: 1.375rem; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
   .campaign-media-grid { grid-template-columns: minmax(0, 1fr); }
