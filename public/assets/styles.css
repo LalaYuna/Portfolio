@@ -566,7 +566,8 @@ html:not(.js) .contact-form { display: none; }
 #campaign .campaign-action-step > h5 { font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-action-step > p, .campaign-execution-item > p { max-width: 760px; margin: 10px 0 0; color: #555951; font-size: 15px; line-height: 1.8; }
 .campaign-action-step p strong { color: var(--ink); font-weight: 600; }
-.campaign-my-execution { border-left: 3px solid #766084; padding-left: 20px; }
+.campaign-my-execution { position: relative; padding-left: 20px; }
+.campaign-my-execution::before { content: ""; position: absolute; top: 16px; bottom: 16px; left: 0; width: 3px; background: #766084; }
 .campaign-execution-item { margin-top: 18px; }
 .campaign-execution-item + .campaign-execution-item { border-top: 1px solid #22232120; padding-top: 18px; }
 .campaign-execution-heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: flex-start; gap: 8px; }
