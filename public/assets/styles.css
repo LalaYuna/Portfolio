@@ -589,8 +589,8 @@ html:not(.js) .contact-form { display: none; }
 .campaign-contribution > strong { display: block; margin-bottom: 7px; font-size: 13px; font-weight: 600; }
 .campaign-output-list { display: grid; gap: 5px; margin: 8px 0 0; padding-left: 18px; color: #555951; font-size: 14px; line-height: 1.7; }
 .campaign-output-section { margin-top: 0; scroll-margin-top: 118px; }
-.campaign-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; align-items: start; }
-.campaign-media-item { min-width: 0; border: 1px solid #22232130; border-radius: 13px; padding: 16px; background: var(--blush); }
+.campaign-media-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 20px; align-items: stretch; }
+.campaign-media-item { display: flex; min-width: 0; height: 100%; flex-direction: column; border: 1px solid #22232130; border-radius: 13px; padding: 16px; background: var(--blush); }
 .campaign-media-item:nth-child(2) { background: var(--blue); }
 .campaign-media-item:nth-child(3) { background: var(--lavender); }
 .campaign-media-item h6 { min-height: 3.1em; margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
@@ -604,7 +604,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-media-item dt { color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .08em; line-height: 1.5; }
 .campaign-media-item dd { margin: 0; font-size: 13px; line-height: 1.65; }
 .campaign-pdf-link { display: inline-block; margin-top: 15px; font-size: 13px; }
-.campaign-media-contribution { margin: 18px 0 0; border: 1px solid #22232130; border-radius: 11px; padding: 13px 16px; background: var(--yellow); font-size: 14px; font-weight: 600; line-height: 1.65; text-align: center; }
+.campaign-media-contribution { display: flex; width: min(100%, 760px); min-height: 50px; box-sizing: border-box; align-items: center; justify-content: center; margin: 18px auto 0; border: 1px solid #22232130; border-radius: 11px; padding: 13px 16px; color: var(--ink); background: var(--yellow); font-size: 14px; font-weight: 600; line-height: 1.65; text-align: center; }
 .campaign-results-block { margin-top: 32px; border-top: 1px solid #22232138; padding-top: 28px; }
 .campaign-performance-section .campaign-results-block { margin-top: 0; border-top: 0; padding-top: 0; }
 .campaign-results-block > h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
