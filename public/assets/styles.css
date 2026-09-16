@@ -607,9 +607,9 @@ html:not(.js) .contact-form { display: none; }
 .campaign-media-contribution { display: flex; width: min(100%, 760px); min-height: 50px; box-sizing: border-box; align-items: center; justify-content: center; margin: 18px auto 0; border: 1px solid #22232130; border-radius: 11px; padding: 13px 16px; color: var(--ink); background: var(--yellow); font-size: 14px; font-weight: 600; line-height: 1.65; text-align: center; }
 .campaign-results-block { margin-top: 32px; border-top: 1px solid #22232138; padding-top: 28px; }
 .campaign-performance-section .campaign-results-block { margin-top: 0; border-top: 0; padding-top: 0; }
-.campaign-results-block > h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-.campaign-results-block > h6 { margin: 12px 0 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
-.campaign-results-block > p { max-width: 760px; margin: 9px 0 0; color: #555951; font-size: 15px; line-height: 1.8; }
+.campaign-result-callout { max-width: 760px; border-left: 3px solid #766084; border-radius: 0 10px 10px 0; padding: 14px 16px; background: var(--lavender); }
+.campaign-result-callout p { margin: 0; color: var(--ink); font-size: 16px; font-weight: 600; line-height: 1.6; }
+.campaign-results-block > .campaign-result-context { max-width: 760px; margin: 10px 0 0; color: #555951; font-size: 14px; line-height: 1.8; }
 .campaign-output-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 20px; }
 .campaign-output-card { min-width: 0; border: 1px solid #22232130; border-radius: 13px; padding: 20px; background: var(--blush); }
 .campaign-output-card:nth-child(2) { background: var(--blue); }
@@ -628,8 +628,10 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-table th:first-child { text-align: left; white-space: normal; }
 .campaign-result-table .is-key-metric th, .campaign-result-table .is-key-metric td { background: #fff4c8; font-weight: 600; }
 .campaign-result-table tbody tr:last-child th, .campaign-result-table tbody tr:last-child td { border-bottom: 0; }
-.campaign-result-notes { display: grid; gap: 5px; margin-top: 14px; }
+.campaign-result-notes { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 24px; margin-top: 14px; }
+.campaign-result-formulas { display: grid; gap: 5px; }
 .campaign-result-notes p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.campaign-result-source { justify-self: end; text-align: right; }
 .campaign-result-notes strong { font-weight: 600; }
 .campaign-insight-list { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: #555951; font-size: 15px; line-height: 1.75; }
 .campaign-insight-limit { margin-top: 22px; border-top: 1px solid #2223212b; padding-top: 18px; }
@@ -828,6 +830,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-action-table th:first-child { width: 96px; }
   .campaign-media-grid { grid-template-columns: minmax(0, 1fr); }
   .campaign-media-item h6 { min-height: 0; }
+  .campaign-result-notes { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-grid, .campaign-video-list { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-card { padding: 17px; }
   .campaign-result-table { min-width: 470px; }
