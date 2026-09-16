@@ -627,6 +627,8 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-table thead th { background: #f7f3f0; font-weight: 600; }
 .campaign-result-table th:first-child { text-align: left; white-space: normal; }
 .campaign-result-table .is-key-metric th, .campaign-result-table .is-key-metric td { background: #fff4c8; font-weight: 600; }
+.campaign-result-table .metric-increase { color: #b42318; }
+.campaign-result-table .metric-decrease { color: #175cd3; }
 .campaign-result-table tbody tr:last-child th, .campaign-result-table tbody tr:last-child td { border-bottom: 0; }
 .campaign-result-notes { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 12px 24px; margin-top: 14px; }
 .campaign-result-formulas { display: grid; gap: 5px; }
