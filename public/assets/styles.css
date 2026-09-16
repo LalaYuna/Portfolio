@@ -635,7 +635,9 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-change-notes { display: grid; grid-column: 1 / -1; gap: 5px; }
 .campaign-result-change-notes p { font-size: 11px; }
 .campaign-result-notes strong { font-weight: 600; }
-.campaign-insight-list { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: #555951; font-size: 15px; line-height: 1.75; }
+.campaign-insight-item + .campaign-insight-item { margin-top: 24px; }
+#campaign .campaign-insight-item h5 { margin: 0; color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+.campaign-insight-item p strong { color: var(--ink); font-weight: 600; }
 .campaign-insight-limit { margin-top: 22px; border-top: 1px solid #2223212b; padding-top: 18px; }
 .campaign-insight-limit > strong { font-size: 14px; font-weight: 600; }
 .campaign-insight-limit > p { margin-top: 7px; color: var(--muted); font-size: 13px; line-height: 1.75; }
@@ -825,6 +827,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
   #campaign .campaign-action-step > h5, #campaign .campaign-team-heading h5 { font-size: 17px; }
+  #campaign .campaign-insight-item h5 { font-size: 17px; }
   .campaign-my-execution { padding-left: 15px; }
   .campaign-execution-heading { align-items: baseline; }
   .campaign-action-table { font-size: 12px; }
