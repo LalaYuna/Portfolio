@@ -621,7 +621,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-contribution { margin-top: 18px; border-top: 1px solid #2223212e; padding-top: 15px; }
 .campaign-result-grid { margin-top: 0; }
 .campaign-table-scroll { max-width: 100%; margin-top: 18px; overflow-x: auto; border: 1px solid #22232138; border-radius: 11px; background: white; }
-.campaign-result-table { width: 100%; min-width: 500px; border-collapse: collapse; font-size: 12px; line-height: 1.55; }
+.campaign-result-table { width: 100%; min-width: 680px; border-collapse: collapse; font-size: 12px; line-height: 1.55; }
 .campaign-result-table caption { padding: 12px 14px; border-bottom: 1px solid #22232130; text-align: left; font-size: 12px; font-weight: 600; }
 .campaign-result-table th, .campaign-result-table td { padding: 10px 11px; border-bottom: 1px solid #22232120; text-align: right; vertical-align: top; white-space: nowrap; }
 .campaign-result-table thead th { background: #f7f3f0; font-weight: 600; }
@@ -632,6 +632,8 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-formulas { display: grid; gap: 5px; }
 .campaign-result-notes p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .campaign-result-source { justify-self: end; text-align: right; }
+.campaign-result-change-notes { display: grid; grid-column: 1 / -1; gap: 5px; }
+.campaign-result-change-notes p { font-size: 11px; }
 .campaign-result-notes strong { font-weight: 600; }
 .campaign-insight-list { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: #555951; font-size: 15px; line-height: 1.75; }
 .campaign-insight-limit { margin-top: 22px; border-top: 1px solid #2223212b; padding-top: 18px; }
@@ -833,7 +835,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-result-notes { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-grid, .campaign-video-list { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-card { padding: 17px; }
-  .campaign-result-table { min-width: 470px; }
+  .campaign-result-table { min-width: 680px; }
   .social-content-flow, .social-results-grid { grid-template-columns: minmax(0, 1fr); }
   .social-results-grid .social-secondary-result { grid-column: auto; }
   .social-case-item { padding: 18px; }
