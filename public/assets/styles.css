@@ -606,6 +606,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-pdf-link { display: inline-block; margin-top: 15px; font-size: 13px; }
 .campaign-media-contribution { margin: 18px 0 0; border: 1px solid #22232130; border-radius: 11px; padding: 13px 16px; background: var(--yellow); font-size: 14px; font-weight: 600; line-height: 1.65; text-align: center; }
 .campaign-results-block { margin-top: 32px; border-top: 1px solid #22232138; padding-top: 28px; }
+.campaign-performance-section .campaign-results-block { margin-top: 0; border-top: 0; padding-top: 0; }
 .campaign-results-block > h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
 .campaign-results-block > h6 { margin: 12px 0 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-results-block > p { max-width: 760px; margin: 9px 0 0; color: #555951; font-size: 15px; line-height: 1.8; }
