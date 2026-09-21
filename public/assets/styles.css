@@ -690,13 +690,13 @@ html:not(.js) .contact-form { display: none; }
 .social-case-item dt { white-space: nowrap; color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.6; }
 .social-case-item dd { min-width: 0; font-size: 14px; line-height: 1.7; }
 .social-evidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 18px; margin-top: 28px; border-top: 1px solid #22232140; padding-top: 24px; }
-.social-evidence-heading { grid-column: 1 / -1; }
-.social-evidence-heading p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.65; }
-.social-evidence-item { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; margin: 0; }
-.social-evidence-item a { display: inline-flex; width: auto; max-width: 100%; border: 1px solid #2223212b; border-radius: 14px; overflow: hidden; background: transparent; }
+.social-evidence-heading { display: flex; grid-column: 1 / -1; flex-wrap: wrap; align-items: baseline; gap: 5px 12px; }
+.social-evidence-heading p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.social-evidence-item { display: grid; min-width: 0; grid-template-rows: 280px auto; align-items: start; margin: 0; }
+.social-evidence-item a { display: inline-flex; width: auto; max-width: 100%; align-self: center; justify-self: center; border: 1px solid #2223212b; border-radius: 14px; overflow: hidden; background: transparent; }
 .social-evidence-item a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 4px; }
 .social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; max-height: 280px; object-fit: contain; }
-.social-evidence-item figcaption { margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
+.social-evidence-item figcaption { width: 100%; margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
 .social-evidence-item figcaption small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .social-analysis-limit { max-width: 760px; margin-top: 22px; border: 1px solid #2223212b; border-radius: 12px; padding: 17px; background: var(--lavender); }
 .social-analysis-limit > strong { font-size: 14px; font-weight: 600; }
@@ -869,6 +869,7 @@ html:not(.js) .contact-form { display: none; }
   .social-case-item dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .social-evidence { grid-template-columns: minmax(0, 1fr); }
   .social-evidence-heading { grid-column: auto; }
+  .social-evidence-item { grid-template-rows: auto auto; }
   .social-evidence-item img { max-height: 320px; }
   .barryway-output-item { padding: 18px; }
   .barryway-output-item dl > div, .barryway-result-grid { grid-template-columns: minmax(0, 1fr); }
