@@ -656,30 +656,33 @@ html:not(.js) .contact-form { display: none; }
 .social-content-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; counter-reset: social-flow; }
 .social-content-flow li { position: relative; min-width: 0; border: 1px solid #22232126; border-radius: 10px; padding: 13px 12px; background: #f8f3df; color: #555951; font-size: 13px; line-height: 1.6; counter-increment: social-flow; }
 .social-content-flow li::before { display: block; margin-bottom: 4px; color: #766084; content: "0" counter(social-flow); font-size: 10px; font-weight: 600; }
-.social-case-list { display: grid; gap: 14px; margin-top: 20px; }
-.social-case-item { border: 1px solid #22232130; border-radius: 13px; padding: 22px; background: var(--blush); }
+.social-performance-summary { max-width: 100% !important; margin: 0 !important; border-left: 3px solid #766084; padding: 11px 0 11px 14px; color: var(--ink) !important; font-size: 16px !important; font-weight: 500; line-height: 1.7 !important; word-break: keep-all; }
+.social-performance-summary strong { font-weight: 700; }
+.social-performance-basis { margin: 7px 0 0 17px !important; color: var(--muted) !important; font-size: 12px !important; line-height: 1.65 !important; }
+.social-case-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+.social-case-item { display: flex; min-width: 0; flex-direction: column; border: 1px solid #22232130; border-radius: 13px; padding: 22px; background: var(--blush); }
 .social-case-item:nth-child(2) { background: var(--blue); }
 .social-case-item:nth-child(3) { background: var(--yellow); }
 .social-case-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
+.social-case-item h6 { min-height: 3.1em; }
+.social-video-figure { width: min(100%, 280px); margin: 14px auto 0; }
+.social-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
+.social-case-result { max-width: 100% !important; margin: 15px 0 0 !important; color: var(--ink) !important; font-size: 13px !important; font-weight: 500; line-height: 1.65 !important; }
+.social-case-result strong { font-weight: 700; }
+.social-case-basis { max-width: 100% !important; margin: 4px 0 0 !important; color: var(--muted) !important; font-size: 11px !important; line-height: 1.6 !important; }
 .social-case-item dl { display: grid; gap: 8px; margin-top: 16px; }
 .social-case-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 10px; }
 .social-case-item dt { white-space: nowrap; color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.6; }
 .social-case-item dd { min-width: 0; font-size: 14px; line-height: 1.7; }
-.social-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 20px; }
-.social-results-grid article { min-width: 0; border: 1px solid #2223212b; border-radius: 13px; padding: 18px; background: #e9f2f6; }
-.social-results-grid article:nth-child(2) { background: var(--blush); }
-.social-results-grid article:nth-child(3) { background: var(--yellow); }
-.social-results-grid .social-secondary-result { grid-column: 1 / -1; background: #efedff; }
-.social-results-grid span, .social-results-grid small { display: block; color: var(--muted); font-size: 11px; line-height: 1.6; }
-.social-results-grid strong { display: block; margin: 7px 0; overflow-wrap: anywhere; font-size: clamp(1.35rem, 3vw, 2rem); font-weight: 600; line-height: 1.25; letter-spacing: -.035em; }
-.social-evidence { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 24px; margin-top: 28px; border-top: 1px solid #22232140; padding-top: 24px; }
+.social-evidence { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; gap: 18px; margin-top: 28px; border-top: 1px solid #22232140; padding-top: 24px; }
 .social-evidence-heading { grid-column: 1 / -1; }
 .social-evidence-heading p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .social-evidence-item { display: flex; min-width: 0; flex-direction: column; align-items: flex-start; margin: 0; }
 .social-evidence-item a { display: inline-flex; width: auto; max-width: 100%; border: 1px solid #2223212b; border-radius: 14px; overflow: hidden; background: transparent; }
 .social-evidence-item a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 4px; }
-.social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; max-height: 400px; object-fit: contain; }
+.social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; max-height: 280px; object-fit: contain; }
 .social-evidence-item figcaption { margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
+.social-evidence-item figcaption small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .social-analysis-limit { max-width: 760px; margin-top: 22px; border: 1px solid #2223212b; border-radius: 12px; padding: 17px; background: var(--lavender); }
 .social-analysis-limit > strong { font-size: 14px; font-weight: 600; }
 .social-analysis-limit p { margin-top: 7px; font-size: 13px; }
@@ -841,9 +844,10 @@ html:not(.js) .contact-form { display: none; }
   .campaign-output-grid, .campaign-video-list { grid-template-columns: minmax(0, 1fr); }
   .campaign-output-card { padding: 17px; }
   .campaign-result-table { min-width: 680px; }
-  .social-content-flow, .social-results-grid { grid-template-columns: minmax(0, 1fr); }
-  .social-results-grid .social-secondary-result { grid-column: auto; }
+  .social-content-flow, .social-case-list { grid-template-columns: minmax(0, 1fr); }
   .social-case-item { padding: 18px; }
+  .social-case-item h6 { min-height: 0; }
+  .social-video-figure { width: min(100%, 320px); }
   .social-case-item dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .social-evidence { grid-template-columns: minmax(0, 1fr); }
   .social-evidence-heading { grid-column: auto; }
