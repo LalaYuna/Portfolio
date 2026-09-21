@@ -670,7 +670,7 @@ html:not(.js) .contact-form { display: none; }
 .social-case-item:nth-child(2) { background: var(--blue); }
 .social-case-item:nth-child(3) { background: var(--yellow); }
 .social-case-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
-.social-case-item h6 { min-height: 3.1em; }
+.social-case-item h6 { min-height: 1.5em; font-size: clamp(12px, 1vw, 14px); line-height: 1.5; letter-spacing: -.045em; white-space: nowrap; }
 .social-video-figure { width: min(100%, 280px); margin: 14px auto 0; }
 .social-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
 .social-case-result { max-width: 100% !important; margin: 15px 0 0 !important; color: var(--ink) !important; font-size: 13px !important; font-weight: 500; line-height: 1.65 !important; }
@@ -852,7 +852,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-result-table { min-width: 680px; }
   .social-content-flow, .social-case-list { grid-template-columns: minmax(0, 1fr); }
   .social-case-item { padding: 18px; }
-  .social-case-item h6 { min-height: 0; }
+  .social-case-item h6 { min-height: 0; font-size: 16px; letter-spacing: -.025em; white-space: normal; }
   .social-video-figure { width: min(100%, 320px); }
   .social-case-item dl > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .social-evidence { grid-template-columns: minmax(0, 1fr); }
