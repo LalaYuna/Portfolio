@@ -651,6 +651,10 @@ html:not(.js) .contact-form { display: none; }
 .project-detail-flow .result-strip { max-width: 760px; margin-top: 18px; }
 #social .detail-cover-description, #barryway .detail-cover-description { max-width: 760px; }
 .social-subsection p, .social-case-item > p, .social-analysis-limit p, .barryway-subsection p, .barryway-output-item > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+.social-channel-value { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.social-channel-icon { display: block; width: 18px; height: 18px; flex: 0 0 18px; }
+.social-channel-value a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.social-channel-value a:focus-visible { border-radius: 3px; outline: 3px solid #6e5cc3; outline-offset: 3px; }
 .social-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .social-subsection h6, .social-case-item h6, .social-evidence-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .social-content-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 16px 0 0; padding: 0; list-style: none; counter-reset: social-flow; }
