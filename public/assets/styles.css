@@ -638,7 +638,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-result-change-notes p { font-size: 11px; }
 .campaign-result-notes strong { font-weight: 600; }
 .campaign-insight-item + .campaign-insight-item { margin-top: 24px; }
-#campaign .campaign-insight-item h5, .social-action-plan > h5 { margin: 0; color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
+#campaign .campaign-insight-item h5, #social .campaign-insight-item h5, .social-action-plan > h5 { margin: 0; color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-insight-item p strong { color: var(--ink); font-weight: 600; }
 .campaign-insight-limit { margin-top: 22px; border-top: 1px solid #2223212b; padding-top: 18px; }
 .campaign-insight-limit > strong { display: block; margin: 0; font-size: 16px; font-weight: 600; letter-spacing: -.025em; line-height: 1.55; }
@@ -650,7 +650,7 @@ html:not(.js) .contact-form { display: none; }
 .project-detail-flow > section > p { max-width: 760px; }
 .project-detail-flow .result-strip { max-width: 760px; margin-top: 18px; }
 #social .detail-cover-description, #barryway .detail-cover-description { max-width: 760px; }
-.social-subsection p, .social-case-item > p, .social-analysis-limit p, .barryway-subsection p, .barryway-output-item > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
+.social-subsection p, .social-case-item > p, .barryway-subsection p, .barryway-output-item > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .social-channel-value { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .social-channel-icon { display: block; width: 18px; height: 18px; flex: 0 0 18px; }
 .social-channel-value a { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; }
@@ -697,9 +697,6 @@ html:not(.js) .contact-form { display: none; }
 .social-evidence-item img { display: block; width: auto; max-width: 100%; height: auto; max-height: 280px; object-fit: contain; }
 .social-evidence-item figcaption { width: 100%; margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
 .social-evidence-item figcaption small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.55; }
-.social-analysis-limit { max-width: 760px; margin-top: 22px; border: 1px solid #2223212b; border-radius: 12px; padding: 17px; background: var(--lavender); }
-.social-analysis-limit > strong { font-size: 14px; font-weight: 600; }
-.social-analysis-limit p { margin-top: 7px; font-size: 13px; }
 .barryway-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .barryway-subsection h6, .barryway-output-item h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .barryway-output-list { display: grid; gap: 14px; margin-top: 20px; }
@@ -847,7 +844,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
   #campaign .campaign-action-step > h5, #campaign .campaign-team-heading h5 { font-size: 17px; }
-  #campaign .campaign-insight-item h5, .social-action-plan > h5 { font-size: 17px; }
+  #campaign .campaign-insight-item h5, #social .campaign-insight-item h5, .social-action-plan > h5 { font-size: 17px; }
   .campaign-my-execution { padding-left: 15px; }
   .campaign-execution-heading { align-items: baseline; }
   .campaign-action-table { font-size: 12px; }
