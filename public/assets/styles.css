@@ -676,13 +676,15 @@ html:not(.js) .contact-form { display: none; }
 .social-case-item h6 { min-height: 1.5em; font-size: clamp(12px, 1vw, 14px); line-height: 1.5; letter-spacing: -.045em; white-space: nowrap; }
 .social-video-figure { width: min(100%, 280px); margin: 14px auto 0; }
 .social-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
-.social-case-item .social-case-facts { display: grid; gap: 7px; margin-top: 15px; }
-.social-case-item .social-case-facts > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: baseline; gap: 10px; border: 0; padding: 0; }
-.social-case-item .social-case-facts dt { min-width: 0; white-space: normal; color: var(--ink); font-size: 13px; font-weight: 500; line-height: 1.65; }
-.social-case-item .social-case-facts dd { min-width: 0; color: var(--ink); font-size: 13px; font-weight: 700; line-height: 1.65; text-align: right; overflow-wrap: anywhere; }
+.social-case-item .social-case-facts { display: grid; gap: 11px; margin-top: 15px; }
+.social-case-item .social-case-facts > div { display: block; border: 0; padding: 0; }
+.social-case-item .social-case-facts dt { display: block; min-width: 0; margin: 0 0 2px; white-space: normal; color: var(--muted); font-size: 11px; font-weight: 500; line-height: 1.6; text-align: left; }
+.social-case-item .social-case-facts dd { display: block; min-width: 0; margin: 0; color: var(--ink); font-size: 13px; font-weight: 700; line-height: 1.65; text-align: left; overflow-wrap: anywhere; }
+.social-case-item .social-case-facts .social-case-metric { white-space: nowrap; overflow-wrap: normal; }
+.social-case-brand-line { display: block; }
+.social-case-brand-line + .social-case-brand-line { margin-top: 2px; }
 .social-case-basis { max-width: 100% !important; margin: 4px 0 0 !important; color: var(--muted) !important; font-size: 11px !important; line-height: 1.6 !important; }
-.social-case-description { flex: 1 1 auto; }
-.social-case-description-justify { text-align: justify; text-justify: inter-word; }
+.social-case-description { flex: 1 1 auto; text-align: left; word-spacing: normal; }
 .social-case-item dl { display: grid; gap: 8px; margin-top: 16px; }
 .social-case-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 10px; }
 .social-case-item dt { white-space: nowrap; color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.6; }
