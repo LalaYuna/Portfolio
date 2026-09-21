@@ -653,7 +653,9 @@ html:not(.js) .contact-form { display: none; }
 .social-subsection p, .social-case-item > p, .social-analysis-limit p, .barryway-subsection p, .barryway-output-item > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .social-channel-value { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
 .social-channel-icon { display: block; width: 18px; height: 18px; flex: 0 0 18px; }
-.social-channel-value a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.social-channel-value a { display: inline-flex; align-items: center; gap: 6px; color: inherit; text-decoration: none; }
+.social-channel-handle { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.social-channel-arrow { font-size: 1.05em; font-weight: 600; line-height: 1; }
 .social-channel-value a:focus-visible { border-radius: 3px; outline: 3px solid #6e5cc3; outline-offset: 3px; }
 .social-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .social-subsection h6, .social-case-item h6, .social-evidence-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
