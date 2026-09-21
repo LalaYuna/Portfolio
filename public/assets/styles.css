@@ -669,16 +669,20 @@ html:not(.js) .contact-form { display: none; }
 .social-performance-separator { color: var(--muted); }
 .social-performance-basis { margin: 7px 0 0 17px !important; color: var(--muted) !important; font-size: 12px !important; line-height: 1.65 !important; }
 .social-case-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
-.social-case-item { display: flex; min-width: 0; flex-direction: column; border: 1px solid #22232130; border-radius: 13px; padding: 22px; background: var(--blush); }
+.social-case-item { display: flex; min-width: 0; height: 100%; box-sizing: border-box; flex-direction: column; border: 1px solid #22232130; border-radius: 13px; padding: 22px; background: var(--blush); }
 .social-case-item:nth-child(2) { background: var(--blue); }
 .social-case-item:nth-child(3) { background: var(--yellow); }
 .social-case-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
 .social-case-item h6 { min-height: 1.5em; font-size: clamp(12px, 1vw, 14px); line-height: 1.5; letter-spacing: -.045em; white-space: nowrap; }
 .social-video-figure { width: min(100%, 280px); margin: 14px auto 0; }
 .social-video-figure video { display: block; width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
-.social-case-result { max-width: 100% !important; margin: 15px 0 0 !important; color: var(--ink) !important; font-size: 13px !important; font-weight: 500; line-height: 1.65 !important; }
-.social-case-result strong { font-weight: 700; }
+.social-case-item .social-case-facts { display: grid; gap: 7px; margin-top: 15px; }
+.social-case-item .social-case-facts > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: baseline; gap: 10px; border: 0; padding: 0; }
+.social-case-item .social-case-facts dt { min-width: 0; white-space: normal; color: var(--ink); font-size: 13px; font-weight: 500; line-height: 1.65; }
+.social-case-item .social-case-facts dd { min-width: 0; color: var(--ink); font-size: 13px; font-weight: 700; line-height: 1.65; text-align: right; overflow-wrap: anywhere; }
 .social-case-basis { max-width: 100% !important; margin: 4px 0 0 !important; color: var(--muted) !important; font-size: 11px !important; line-height: 1.6 !important; }
+.social-case-description { flex: 1 1 auto; }
+.social-case-description-justify { text-align: justify; text-justify: inter-word; }
 .social-case-item dl { display: grid; gap: 8px; margin-top: 16px; }
 .social-case-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 10px; }
 .social-case-item dt { white-space: nowrap; color: var(--muted); font-size: 11px; font-weight: 600; line-height: 1.6; }
