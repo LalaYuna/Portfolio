@@ -714,9 +714,8 @@ html:not(.js) .contact-form { display: none; }
 .barryway-flow-media > strong { display: block; font-size: 14px; font-weight: 600; line-height: 1.6; }
 .barryway-flow-video { width: min(100%, 240px); margin: 10px auto 0; }
 .barryway-flow-video video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
-.barryway-flow-media > small { display: block; max-width: 260px; margin: 8px auto 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .barryway-flow-arrow { display: grid; min-width: 66px; place-items: center; gap: 4px; color: #51435e; text-align: center; }
-.barryway-flow-arrow span { font-size: 11px; font-weight: 600; line-height: 1.5; }
+.barryway-flow-arrow span { font-size: 13px; font-weight: 600; line-height: 1.5; }
 .barryway-flow-arrow i { font-style: normal; font-size: 22px; line-height: 1; }
 .barryway-flow-arrow i::before { content: "→"; }
 .barryway-output-item dl { margin-top: 16px; }
