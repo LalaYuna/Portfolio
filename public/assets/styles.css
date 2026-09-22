@@ -698,6 +698,8 @@ html:not(.js) .contact-form { display: none; }
 .social-evidence-item figcaption { width: 100%; margin-top: 9px; color: #555951; font-size: 13px; line-height: 1.6; }
 .social-evidence-item figcaption small { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .barryway-cover-title span { display: block; }
+.barryway-cover-description span { display: block; }
+.barryway-cover-description strong { font-weight: 700; }
 #barryway .barryway-section-intro { margin-bottom: 0; font-size: 18px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .barryway-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .barryway-subsection-first { margin-top: 0; border-top: 0; padding-top: 0; }
