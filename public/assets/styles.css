@@ -710,7 +710,7 @@ html:not(.js) .contact-form { display: none; }
 .barryway-output-item:nth-child(2) { background: var(--yellow); }
 .barryway-output-item:nth-child(3) { background: var(--blush); }
 .barryway-output-item > span { display: block; margin-bottom: 9px; color: var(--muted); font-size: 11px; font-weight: 600; letter-spacing: .1em; }
-.barryway-video-figure { width: min(100%, 280px); margin: 14px auto 0; }
+.barryway-reel-output .barryway-video-figure { width: min(100%, 240px); margin: 16px auto 0; }
 .barryway-video-figure video { display: block; width: 100%; max-width: 100%; height: auto; aspect-ratio: 9 / 16; border: 0; border-radius: 11px; background: #111; object-fit: contain; }
 .barryway-output-item dl { margin-top: 16px; }
 .barryway-output-item dl > div { display: grid; grid-template-columns: 104px minmax(0, 1fr); gap: 10px; border-top: 1px solid #22232126; padding-top: 12px; }
