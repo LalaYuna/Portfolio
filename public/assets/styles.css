@@ -553,7 +553,7 @@ html:not(.js) .contact-form { display: none; }
 .campaign-detail-section:last-child, .social-detail-section:last-child, .barryway-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
 .campaign-detail-section > .eyebrow, .social-detail-section > .eyebrow, .barryway-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
 .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
-#campaign .campaign-section-title, #social .campaign-section-title, #barryway .campaign-section-title { margin: 0 0 20px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
+#campaign .campaign-section-title, #social .campaign-section-title, #barryway .campaign-section-title, #additional-work .campaign-section-title { margin: 0 0 20px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
 .campaign-detail-section > p, .social-detail-section > p, .barryway-detail-section > p, .campaign-output-card > p, .campaign-video-list p, .campaign-insight-item p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .campaign-output-card h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .campaign-topic-list { display: grid; gap: 0; }
@@ -729,11 +729,15 @@ html:not(.js) .contact-form { display: none; }
 .barryway-flow-output .barryway-output-scope dd { margin: 4px 0 0; }
 .additional-work-body { padding-top: 0; }
 .additional-work-flow { display: grid; gap: 0; }
+.additional-overview-section { min-width: 0; padding: 30px 0; border-bottom: 1px solid #2223212b; }
+.additional-overview-section .project-basic-meta { margin-top: 18px; }
+.additional-overview-section .project-basic-meta > div { grid-template-columns: 132px minmax(0, 1fr); }
+.additional-overview-section .project-basic-meta dt { white-space: nowrap; }
 .additional-task { min-width: 0; padding-top: 34px; }
 .additional-task + .additional-task { margin-top: 54px; border-top: 2px solid #22232180; padding-top: 50px; }
 .additional-task-header { padding-bottom: 28px; border-bottom: 1px solid #22232140; }
-.additional-task-header > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
-.additional-task-header h4 { margin: 0; overflow-wrap: break-word; font-size: 28px; font-weight: 600; line-height: 1.4; letter-spacing: -.045em; }
+.additional-task-header > .eyebrow { display: block; margin-bottom: 10px; color: #766084; font-size: 12px; }
+.additional-task-header .campaign-section-title { margin-bottom: 10px; overflow-wrap: break-word; }
 .additional-task-header p { max-width: 760px; margin-top: 13px; color: #555951; font-size: 15px; line-height: 1.8; }
 .additional-basic-section { padding: 28px 0 30px; border-bottom: 1px solid #2223212b; }
 .additional-basic-section h5, .additional-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
@@ -850,7 +854,7 @@ html:not(.js) .contact-form { display: none; }
   .always-visible h5 { font-size: 20px; }
   .campaign-detail-section, .social-detail-section, .barryway-detail-section { padding: 24px 0; }
   .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { font-size: 20px; }
-  #campaign .campaign-section-title, #social .campaign-section-title, #barryway .campaign-section-title { font-size: 1.375rem; }
+  #campaign .campaign-section-title, #social .campaign-section-title, #barryway .campaign-section-title, #additional-work .campaign-section-title { font-size: 1.375rem; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
   #campaign .campaign-action-step > h5, #campaign .campaign-team-heading h5 { font-size: 17px; }
@@ -886,8 +890,8 @@ html:not(.js) .contact-form { display: none; }
   .barryway-output-item dl > div { grid-template-columns: minmax(0, 1fr); }
   .additional-task { padding-top: 28px; }
   .additional-task + .additional-task { margin-top: 40px; padding-top: 38px; }
-  .additional-task-header h4 { font-size: 24px; }
-  .additional-task .project-basic-meta > div, .data-result-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
+  .additional-overview-section { padding: 24px 0; }
+  .additional-overview-section .project-basic-meta > div, .additional-task .project-basic-meta > div, .data-result-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .additional-detail-section { padding: 24px 0; }
   .additional-basic-section h5, .additional-detail-section h5 { font-size: 20px; }
   .data-table-figure a { padding: 6px; }
