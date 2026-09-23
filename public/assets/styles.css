@@ -740,7 +740,7 @@ html:not(.js) .contact-form { display: none; }
 .additional-task-header .campaign-section-title { margin-bottom: 10px; overflow-wrap: break-word; }
 .additional-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
 #additional-work .additional-title-row .campaign-section-title { margin-bottom: 0; }
-.additional-title-row small { color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.6; }
+.additional-title-row .campaign-team-badge { max-width: 100%; white-space: normal; }
 .additional-task-header p { max-width: 760px; margin-top: 13px; color: #555951; font-size: 15px; line-height: 1.8; }
 .additional-basic-section { padding: 28px 0 30px; border-bottom: 1px solid #2223212b; }
 .additional-basic-section h5, .additional-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
@@ -759,22 +759,24 @@ html:not(.js) .contact-form { display: none; }
 .additional-flow-list strong { color: var(--text); font-weight: 600; white-space: nowrap; }
 .additional-note-list { display: grid; gap: 7px; margin: 10px 0 0; padding-left: 20px; color: #555951; font-size: 14px; line-height: 1.75; }
 .additional-note-list strong { font-weight: 600; }
-.petfriends-carousel { max-width: 650px; margin: 24px auto 0; }
-.petfriends-carousel-heading { width: min(100%, 520px); margin: 0 auto 15px; }
+.petfriends-output-layout { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); align-items: start; gap: 30px; margin-top: 20px; }
+.petfriends-carousel { min-width: 0; margin: 0; }
+.petfriends-caption { min-width: 0; max-width: none; margin-top: 0; border-top: 0; padding-top: 0; }
+.petfriends-carousel-heading { margin-bottom: 15px; }
 .petfriends-carousel-heading h6 { margin: 0; font-size: 16px; font-weight: 600; line-height: 1.55; letter-spacing: -.025em; }
 .petfriends-carousel-heading p { margin-top: 5px; color: var(--muted); font-size: 12px; line-height: 1.65; }
-.petfriends-carousel-stage { display: grid; grid-template-columns: 48px minmax(0, 520px) 48px; justify-content: center; align-items: center; gap: 12px; }
+.petfriends-carousel-stage { display: grid; grid-template-columns: 40px minmax(0, 1fr) 40px; align-items: center; gap: 8px; }
 .petfriends-carousel-viewport { min-width: 0; width: 100%; }
 .petfriends-carousel-track { display: grid; gap: 24px; }
 .petfriends-carousel-slide { min-width: 0; margin: 0; }
-.petfriends-carousel-slide a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
+.petfriends-carousel-slide a { display: block; border-radius: 12px; overflow: hidden; background: white; }
 .petfriends-carousel-slide a:focus-visible, .petfriends-carousel-arrow:focus-visible, .petfriends-carousel-dots button:focus-visible, .petfriends-carousel-original:focus-visible, .data-table-figure a:focus-visible { outline: 3px solid #6e5cc3; outline-offset: 3px; }
-.petfriends-carousel-slide img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; }
+.petfriends-carousel-slide img { display: block; width: 100%; height: auto; aspect-ratio: 680 / 672; object-fit: contain; transform: scale(1.02); }
 .petfriends-carousel-slide figcaption, .data-table-figure figcaption { margin-top: 8px; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .js .petfriends-carousel-viewport { overflow: hidden; touch-action: pan-y pinch-zoom; }
 .js .petfriends-carousel-track { display: flex; gap: 0; transition: transform .28s ease; will-change: transform; }
 .js .petfriends-carousel-slide { flex: 0 0 100%; width: 100%; }
-.petfriends-carousel-arrow { display: inline-flex; width: 48px; height: 48px; align-items: center; justify-content: center; border: 1px solid #22232170; border-radius: 50%; background: var(--yellow); color: var(--text); font-size: 22px; line-height: 1; transition: background .2s, opacity .2s, transform .2s; }
+.petfriends-carousel-arrow { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid #22232170; border-radius: 50%; background: var(--yellow); color: var(--text); font-size: 22px; line-height: 1; transition: background .2s, opacity .2s, transform .2s; }
 .petfriends-carousel-arrow:hover:not(:disabled) { background: #f4e4a6; transform: translateY(-1px); }
 .petfriends-carousel-arrow:disabled { cursor: not-allowed; opacity: .35; }
 .petfriends-carousel-controls { display: grid; justify-items: center; gap: 10px; width: min(100%, 520px); margin: 13px auto 0; }
@@ -898,6 +900,8 @@ html:not(.js) .contact-form { display: none; }
   .additional-overview-section .project-basic-meta > div, .additional-task .project-basic-meta > div, .data-result-list > div { grid-template-columns: minmax(0, 1fr); gap: 3px; }
   .additional-detail-section { padding: 24px 0; }
   .additional-basic-section h5, .additional-detail-section h5 { font-size: 20px; }
+  .petfriends-output-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .petfriends-carousel { width: 100%; max-width: 650px; margin-inline: auto; }
   .data-table-figure a { padding: 6px; }
   .education-card { padding: 24px; }
   .education-card h3 { font-size: 22px; }
