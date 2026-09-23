@@ -738,6 +738,9 @@ html:not(.js) .contact-form { display: none; }
 .additional-task-header { padding-bottom: 28px; border-bottom: 1px solid #22232140; }
 .additional-task-header > .eyebrow { display: block; margin-bottom: 10px; color: #766084; font-size: 12px; }
 .additional-task-header .campaign-section-title { margin-bottom: 10px; overflow-wrap: break-word; }
+.additional-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; }
+#additional-work .additional-title-row .campaign-section-title { margin-bottom: 0; }
+.additional-title-row small { color: var(--muted); font-size: 12px; font-weight: 400; line-height: 1.6; }
 .additional-task-header p { max-width: 760px; margin-top: 13px; color: #555951; font-size: 15px; line-height: 1.8; }
 .additional-basic-section { padding: 28px 0 30px; border-bottom: 1px solid #2223212b; }
 .additional-basic-section h5, .additional-detail-section h5 { margin: 0; font-size: 21px; font-weight: 500; line-height: 1.45; letter-spacing: -.045em; }
@@ -746,7 +749,7 @@ html:not(.js) .contact-form { display: none; }
 .additional-task .project-basic-meta dt { white-space: nowrap; }
 .additional-detail-section { min-width: 0; padding: 30px 0; border-bottom: 1px solid #2223212b; }
 .additional-detail-section:last-child { border-bottom: 0; padding-bottom: 0; }
-.additional-detail-section > .eyebrow { margin-bottom: 10px; color: #766084; font-size: 12px; }
+#additional-work .additional-detail-section > .eyebrow { margin-bottom: 10px; color: #65507a; font-size: 1.5rem; font-weight: 700; letter-spacing: -.035em; line-height: 1.45; }
 .additional-detail-section > p, .additional-subsection p, .data-output-case > p { max-width: 760px; margin-top: 12px; color: #555951; font-size: 15px; line-height: 1.8; }
 .additional-subsection { max-width: 760px; margin-top: 22px; border-top: 1px solid #22232126; padding-top: 18px; }
 .additional-subsection-first { border-top: 0; padding-top: 0; }
@@ -855,6 +858,7 @@ html:not(.js) .contact-form { display: none; }
   .campaign-detail-section, .social-detail-section, .barryway-detail-section { padding: 24px 0; }
   .campaign-detail-section h5, .social-detail-section h5, .barryway-detail-section h5 { font-size: 20px; }
   #campaign .campaign-section-title, #social .campaign-section-title, #barryway .campaign-section-title, #additional-work .campaign-section-title { font-size: 1.375rem; }
+  #additional-work .additional-detail-section > .eyebrow { font-size: 1.375rem; }
   .campaign-topic-list h5 { font-size: 18px; }
   .campaign-topic-list p, .campaign-detail-section > .campaign-topic-summary { font-size: 16px; }
   #campaign .campaign-action-step > h5, #campaign .campaign-team-heading h5 { font-size: 17px; }
