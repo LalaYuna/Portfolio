@@ -788,9 +788,12 @@ html:not(.js) .contact-form { display: none; }
 .petfriends-carousel-original { border-bottom: 1px solid currentColor; padding-bottom: 2px; font-size: 12px; font-weight: 600; line-height: 1.5; }
 .data-table-figure a { display: block; border: 1px solid #2223212b; border-radius: 12px; overflow: hidden; background: white; }
 .additional-caption-copy { margin-top: 12px; border-left: 2px solid #766084; padding-left: 16px; }
+.petfriends-caption .additional-caption-copy { margin-top: 40px; }
 .additional-caption-copy p { margin-top: 9px; }
 .additional-caption-copy p:first-child { margin-top: 0; color: var(--text); font-weight: 600; }
-.additional-caption-copy .additional-caption-tags { color: #766084; font-size: 13px; }
+.petfriends-caption .additional-caption-copy p:first-child { font-weight: 400; }
+.petfriends-caption .additional-caption-copy p + p { margin-top: 20px; }
+.petfriends-product-reference { display: block; margin-top: 2px; }
 .data-output-list { display: grid; gap: 28px; margin-top: 20px; }
 .data-output-case { min-width: 0; border-top: 1px solid #22232130; padding-top: 20px; }
 .data-output-case:first-child { border-top: 0; padding-top: 0; }
@@ -902,6 +905,7 @@ html:not(.js) .contact-form { display: none; }
   .additional-basic-section h5, .additional-detail-section h5 { font-size: 20px; }
   .petfriends-output-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .petfriends-carousel { width: 100%; max-width: 650px; margin-inline: auto; }
+  .petfriends-caption .additional-caption-copy { margin-top: 12px; }
   .data-table-figure a { padding: 6px; }
   .education-card { padding: 24px; }
   .education-card h3 { font-size: 22px; }
