@@ -7,7 +7,7 @@
   <meta name="description" content="콘텐츠 마케터 송유나의 소개, 활용 도구, 프로젝트, 학력과 경험을 한 페이지에서 소개합니다.">
   <title>송유나 — 콘텐츠 마케팅 포트폴리오</title>
   <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./assets/styles.css?v=20260928-2">
+  <link rel="stylesheet" href="./assets/styles.css?v=20260928-3">
   <script src="./assets/script.js?v=20260914-1" defer></script>
 </head>
 <body class="one-page-site">
@@ -630,59 +630,77 @@
                     <p>교육 과정에서 제공된 광고 성과 및 고객 행동 데이터를 바탕으로, 소재별 효율과 퍼널 이탈 구간을 비교해 우선 검토 대상과 개선 방안을 도출한 개인 분석 실습입니다.</p>
                   </header>
 
-                  <section class="additional-detail-section">
-                    <span class="eyebrow">분석 목적</span>
-                    <h5>수치 비교에서 개선 우선순위와 확인할 가설 도출</h5>
-                    <p>광고 소재별 효율을 비교하고 고객 행동 단계에서 이탈이 큰 구간을 찾는 두 가지 데이터 분석 실습을 수행했습니다. 계산한 지표를 근거로 우선 검토할 대상과 추가 확인할 데이터를 정리했습니다.</p>
-                    <div class="additional-subsection"><h6>분석 질문</h6><ul class="additional-note-list"><li><strong>CASE 01</strong> — 어떤 광고 소재를 우선 개선하거나 중단 검토해야 하는가?</li><li><strong>CASE 02</strong> — 고객이 어느 단계에서 이탈하며, 원인을 확인하려면 무엇을 더 봐야 하는가?</li></ul></div>
-                  </section>
-
-                  <section class="additional-detail-section">
-                    <span class="eyebrow">분석 방법</span>
-                    <h5>지표 계산 → 비교 → 가설 검토 → 검증 방향 제안</h5>
-                    <div class="additional-subsection additional-subsection-first"><h6>CASE 01. 소재별 성과 비교</h6><p>제공된 소재 A·B·C의 데이터를 바탕으로 CTR·CPC·CVR·CPA·ROAS를 계산하고, 소재별 효율을 비교해 개선 우선순위를 판단했습니다.</p></div>
-                    <div class="additional-subsection"><h6>CASE 02. 고객 행동 퍼널 분석</h6><p>랜딩 방문 → 장바구니 담기 → 결제 페이지 진입 → 구매 완료 순서로 단계별 인원과 이탈률·전환율을 계산했습니다. 제공된 원인 가설 중 적절한 가설을 선택하고 추가 검증 방향을 제안했습니다.</p></div>
-                  </section>
-
-                  <section class="additional-detail-section">
-                    <span class="eyebrow">CASE 01·02 분석표</span>
-                    <h5>직접 계산한 지표 요약표와 퍼널 분석표</h5>
-                    <div class="data-output-list">
-                      <article class="data-output-case">
-                        <span>CASE 01 · 광고 소재 성과</span>
-                        <h6>소재별 클릭·전환·비용 지표 비교</h6>
-                        <figure class="data-table-figure">
-                          <a href="./assets/data-ad-performance-table.png" target="_blank" rel="noopener noreferrer" aria-label="광고 소재별 성과 요약표 원본 이미지 열기"><img src="./assets/data-ad-performance-table.png" alt="소재 A, B, C의 CTR, CPC, CVR, CPA, ROAS를 비교한 Google Sheets 요약표" width="1360" height="260" loading="lazy"></a>
-                          <figcaption>교육 과정 제공 데이터 기반 · 소재별 지표 직접 계산</figcaption>
-                        </figure>
-                        <p>소재 B는 CTR 1.70%, CPA 39,700원, ROAS 158%로 세 소재 가운데 우선 개선 또는 중단 검토 대상으로 판단했습니다.</p>
-                      </article>
-                      <article class="data-output-case">
-                        <span>CASE 02 · 고객 행동 퍼널</span>
-                        <h6>단계별 이탈·전환 구간 비교</h6>
-                        <figure class="data-table-figure">
-                          <a href="./assets/data-funnel-analysis-table.png" target="_blank" rel="noopener noreferrer" aria-label="고객 행동 퍼널 분석표 원본 이미지 열기"><img src="./assets/data-funnel-analysis-table.png" alt="랜딩 방문부터 구매 완료까지 단계별 인원, 이탈 고객 수, 이탈률, 전환율을 정리한 Google Sheets 분석표" width="1450" height="260" loading="lazy"></a>
-                          <figcaption>교육 과정 제공 데이터 기반 · 단계별 이탈·전환 직접 계산</figcaption>
-                        </figure>
-                        <p>랜딩 방문 15,000명에서 장바구니 담기 2,300명으로 이어지는 구간의 이탈률 84.7%를 가장 큰 이탈 구간으로 확인했습니다.</p>
-                      </article>
+                  <section class="data-analysis-case" aria-labelledby="data-analysis-case-01">
+                    <h5 id="data-analysis-case-01">CASE 01. 광고 소재별 성과 비교</h5>
+                    <div class="data-analysis-part">
+                      <h6>실습 목표</h6>
+                      <p>제공된 데이터를 바탕으로 CTR·CPC·CVR·CPA·ROAS를 직접 계산하고, 소재별 성과를 요약했습니다.</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>핵심 결론</h6>
+                      <div class="data-analysis-conclusion">
+                        <p class="data-analysis-conclusion-title">소재 B 우선 개선 또는 중단 검토</p>
+                        <p>소재 B는 CTR 1.70%, CPA 39,700원, ROAS 158%로 세 소재 가운데 우선 개선하거나 중단을 검토할 대상으로 판단했습니다.</p>
+                      </div>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>분석 방법</h6>
+                      <p>CTR·CPC·CVR·CPA·ROAS 계산 → 소재별 비교 → 우선 검토 대상 선정</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>소재별 분석표</h6>
+                      <figure class="data-table-figure">
+                        <a href="./assets/data-ad-performance-table.png" target="_blank" rel="noopener noreferrer" aria-label="광고 소재별 성과 요약표 원본 이미지 열기"><img src="./assets/data-ad-performance-table.png" alt="소재 A, B, C의 CTR, CPC, CVR, CPA, ROAS를 비교한 Google Sheets 요약표" width="1360" height="260" loading="lazy"></a>
+                        <figcaption>교육 과정 제공 데이터 기반 · 소재별 지표 직접 계산</figcaption>
+                      </figure>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>판단 근거</h6>
+                      <p>클릭 효율뿐 아니라 전환율·획득비용·매출 효율을 함께 비교해 우선 검토할 소재를 선정했습니다.</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>인사이트</h6>
+                      <p>광고 소재의 성과는 클릭률 하나만으로 판단하기보다, 전환율·획득비용·매출 효율을 함께 확인해야 한다는 점을 배웠습니다.</p>
                     </div>
                   </section>
 
-                  <section class="additional-detail-section">
-                    <span class="eyebrow">분석 결과</span>
-                    <h5>소재 B와 랜딩 방문 이후 구간을 우선 검토 대상으로 선정</h5>
-                    <div class="additional-subsection additional-subsection-first"><h6>CASE 01. 소재 B 우선 개선 검토</h6><p>소재 B는 CTR이 가장 낮고 CPA가 가장 높으며, ROAS도 다른 소재보다 낮았습니다. 이를 근거로 우선 개선하거나 중단을 검토할 소재로 선정했습니다.</p></div>
-                    <div class="additional-subsection"><h6>CASE 02. 랜딩 방문 → 장바구니 구간 우선 분석</h6><p>랜딩 방문 15,000명 중 장바구니 담기로 이어진 인원은 2,300명이었습니다. 이 구간의 이탈률이 84.7%로 가장 높아 우선 분석 대상으로 선정했습니다.</p><dl class="data-result-list"><div><dt>랜딩 방문</dt><dd>15,000명</dd></div><div><dt>장바구니 담기</dt><dd>2,300명 · 이전 단계 대비 이탈률 84.7%</dd></div><div><dt>결제 페이지 진입</dt><dd>1,600명 · 이전 단계 대비 이탈률 약 30.4%</dd></div><div><dt>구매 완료</dt><dd>520명 · 이전 단계 대비 이탈률 67.5%</dd></div></dl></div>
-                    <p class="additional-limit-note">이는 제공 데이터에서 확인한 분석 결과이며, 개선안을 실행해 달성한 실적이 아닙니다.</p>
+                  <section class="data-analysis-case" aria-labelledby="data-analysis-case-02">
+                    <h5 id="data-analysis-case-02">CASE 02. 고객 행동 퍼널 분석</h5>
+                    <div class="data-analysis-part">
+                      <h6>실습 목표</h6>
+                      <p>제공된 고객 행동 데이터를 바탕으로 이탈이 큰 구간을 찾고, 원인 가설과 개선·추가 검증 방향을 도출했습니다.</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>핵심 결론</h6>
+                      <div class="data-analysis-conclusion">
+                        <p class="data-analysis-conclusion-title">랜딩페이지 방문 → 장바구니 담기 구간 우선 분석</p>
+                        <p>랜딩페이지 방문자 15,000명 중 2,300명이 장바구니 단계로 이동해, 해당 구간의 이탈률이 84.7%로 가장 높았습니다.</p>
+                      </div>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>분석 방법</h6>
+                      <p>단계별 인원 확인 → 이탈 고객 수 계산 → 이탈률·전환율 비교 → 우선 분석 구간 선정</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>퍼널 분석표</h6>
+                      <figure class="data-table-figure">
+                        <a href="./assets/data-funnel-analysis-table.png" target="_blank" rel="noopener noreferrer" aria-label="고객 행동 퍼널 분석표 원본 이미지 열기"><img src="./assets/data-funnel-analysis-table.png" alt="랜딩 방문부터 구매 완료까지 단계별 인원, 이탈 고객 수, 이탈률, 전환율을 정리한 Google Sheets 분석표" width="1450" height="260" loading="lazy"></a>
+                        <figcaption>교육 과정 제공 데이터 기반 · 단계별 이탈·전환 직접 계산</figcaption>
+                      </figure>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>추가 검증 방향</h6>
+                      <p>집계 데이터만으로 이탈 원인을 단정하지 않고, 광고 내용과 랜딩페이지의 일치 여부와 랜딩페이지의 스크롤 깊이·체류시간을 추가로 확인해야 한다고 판단했습니다.</p>
+                    </div>
+                    <div class="data-analysis-part">
+                      <h6>인사이트</h6>
+                      <p>퍼널 분석에서는 이탈이 큰 문제 구간을 찾는 것과 실제 이탈 원인을 검증하는 과정을 구분해야 한다는 점을 배웠습니다.</p>
+                    </div>
                   </section>
 
-                  <section class="additional-detail-section">
-                    <span class="eyebrow">인사이트·한계</span>
-                    <h5>문제 구간을 찾는 것과 원인을 검증하는 것을 구분</h5>
-                    <div class="additional-subsection additional-subsection-first"><h6>CASE 01. 소재별 성과 비교에서 배운 점</h6><p>소재별 클릭·전환·비용 지표를 함께 비교해, 어떤 소재를 먼저 검토할지 판단하는 근거를 정리했습니다.</p></div>
-                    <div class="additional-subsection"><h6>CASE 02. 퍼널 분석의 추가 검증 방향</h6><p>소재별 랜딩 방문과 장바구니 전환을 비교하고, 특정 소재에서 이탈이 높다면 광고 내용과 랜딩페이지의 일치 여부를 확인하도록 제안했습니다. 또한 스크롤 깊이·체류시간을 추가로 확인해 정보 구성의 개선 지점을 판단하도록 제안했습니다.</p></div>
-                    <div class="additional-subsection"><h6>분석 한계</h6><p>제공된 집계 데이터만으로 개별 이탈 원인이나 개선안의 실제 효과를 검증한 것은 아닙니다.</p></div>
+                  <section class="data-analysis-limit" aria-labelledby="data-analysis-limit-title">
+                    <h5 id="data-analysis-limit-title">분석 한계</h5>
+                    <p>제공된 집계 데이터만으로 개별 사용자의 이탈 원인이나 개선안의 실제 효과를 검증한 것은 아닙니다.</p>
                   </section>
                 </article>
               </div>
