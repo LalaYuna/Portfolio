@@ -811,6 +811,7 @@ html:not(.js) .contact-form { display: none; }
 #data-analysis .data-analysis-conclusion .data-analysis-conclusion-title { margin-top: 0; color: var(--text); font-weight: 600; }
 #data-analysis .data-table-figure { width: 100%; overflow-x: auto; margin-top: 10px; }
 #data-analysis .data-table-figure a { width: max(100%, 700px); box-sizing: border-box; }
+#data-analysis .data-ad-table-figure img { clip-path: inset(0 0.25% 4.6% 0); }
 #data-analysis .data-analysis-limit { margin-top: 34px; border-top: 1px solid #2223212b; padding-top: 24px; text-align: left; }
 .data-result-list { display: grid; gap: 8px; margin-top: 16px; }
 .data-result-list > div { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 16px; border-top: 1px solid #22232126; padding-top: 10px; }
