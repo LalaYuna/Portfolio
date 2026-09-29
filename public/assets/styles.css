@@ -818,14 +818,18 @@ html:not(.js) .contact-form { display: none; }
 .data-result-list dd { min-width: 0; font-size: 14px; line-height: 1.7; }
 .additional-limit-note { border-radius: 10px; padding: 13px 15px; background: var(--lavender); font-size: 13px !important; }
 .education-section { background: white; border-bottom: var(--line); }
-.education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-.education-card { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 32px; }
+.education-grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: start; gap: 18px; }
+.education-card { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 26px; }
 .education-card-lavender { background: var(--lavender); }
 .education-card-yellow { background: var(--yellow); }
-.education-card h3 { margin-top: 14px; font-size: 25px; font-weight: 600; line-height: 1.4; }
+.education-card h3 { margin-top: 12px; font-size: 25px; font-weight: 600; line-height: 1.4; }
 .education-card > p { margin-top: 10px; font-size: 16px; line-height: 1.75; }
-.education-card .education-note { margin-top: 22px; color: var(--muted); }
+.education-card .education-note { margin-top: 16px; color: var(--muted); font-size: 14px; }
+.education-topics { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 0; padding: 0; list-style: none; }
+.education-topics li { max-width: 100%; border: 1px solid #22232130; border-radius: 999px; padding: 4px 10px; font-size: 12px; line-height: 1.5; }
 .resume-one-page { background: #faf8f5; }
+.resume-page .resume-standalone { padding-top: 155px; }
+.resume-page .one-page-section-heading h1 { font-size: clamp(2.15rem, 4vw, 3.35rem); }
 .resume-reference-links { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-bottom: 28px; font-size: 14px; }
 .resume-one-page .resume-section { margin-top: 24px; }
 .resume-one-page .resume-section-heading h3 { font-size: 34px; }
@@ -918,8 +922,9 @@ html:not(.js) .contact-form { display: none; }
   .petfriends-carousel { width: 100%; max-width: 650px; margin-inline: auto; }
   .petfriends-caption .additional-caption-copy { margin-top: 12px; }
   .data-table-figure a { padding: 6px; }
-  .education-card { padding: 24px; }
+  .education-card { padding: 22px; }
   .education-card h3 { font-size: 22px; }
+  .resume-page .resume-standalone { padding-top: 125px; }
   .resume-one-page .resume-section-heading h3 { font-size: 29px; }
   .resume-one-page .resume-item-content h4 { font-size: 20px; }
   .legacy-card { padding: 30px 22px; }
