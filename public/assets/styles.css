@@ -301,10 +301,6 @@ details[open] > summary .detail-toggle::after { transform: rotate(0); }
 .resume-tools { margin-top: 30px; border-top: 1px solid #22232145; padding-top: 24px; }
 .resume-tools > h3 { font-size: 22px; font-weight: 600; }
 .resume-tool-note { margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.tool-level-guide { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 17px 0 0; }
-.tool-level-guide > div { min-width: 0; border: 1px solid #22232128; border-radius: 10px; padding: 10px; background: var(--blush); }
-.tool-level-guide dt { font-size: 12px; font-weight: 600; }
-.tool-level-guide dd { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.55; }
 .resume-tool-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
 .resume-tool-groups > section { min-width: 0; border-top: 1px solid #22232145; padding-top: 12px; }
 .resume-tool-groups h4 { margin: 0; font-size: 13px; font-weight: 600; line-height: 1.5; }
@@ -449,8 +445,7 @@ html:not(.js) .contact-form { display: none; }
   .resume-profile-main > p { font-size: 16px; }
   .resume-tools { margin-top: 25px; padding-top: 21px; }
   .resume-tools > h3 { font-size: 20px; }
-  .tool-level-guide, .resume-tool-groups { grid-template-columns: minmax(0, 1fr); }
-  .tool-level-guide { gap: 7px; }
+  .resume-tool-groups { grid-template-columns: minmax(0, 1fr); }
   .resume-tool-groups { gap: 18px; }
   .resume-section { margin-top: 24px; padding: 30px 23px; }
   .resume-section-heading { display: block; padding-bottom: 21px; }
@@ -519,7 +514,6 @@ html:not(.js) .contact-form { display: none; }
 .one-page-section-heading { margin-bottom: 38px; }
 .one-page-section-heading h2 { font-size: clamp(2.15rem, 4vw, 3.35rem); }
 .one-page-section-heading p { max-width: 750px; margin-top: 15px; font-size: 16px; }
-.skills-section .tool-level-guide { margin-bottom: 24px; }
 .skills-category-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
 .skills-category { min-width: 0; border: var(--line); border-radius: var(--radius); padding: 25px; background: var(--blush); }
 .skills-category:nth-child(2) { background: var(--blue); }
@@ -529,8 +523,6 @@ html:not(.js) .contact-form { display: none; }
 .skills-detail-list li { min-width: 0; border-top: 1px solid #2223212b; padding: 12px 0; }
 .skills-detail-list .skill-name { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; font-size: 14px; line-height: 1.5; }
 .skills-detail-list strong { font-weight: 500; }
-.skills-detail-list em { border-radius: 20px; padding: 2px 7px; color: #4b4761; background: #ffffffad; font-size: 10px; font-style: normal; font-weight: 600; white-space: nowrap; }
-.skills-detail-list small { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.65; }
 .projects-section { background: var(--blush); border-bottom: var(--line); }
 .project-jump-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 34px; }
 .project-jump-links a { border: var(--line); border-radius: 30px; padding: 7px 13px; background: white; font-size: 13px; }
