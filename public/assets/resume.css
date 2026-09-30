@@ -6,35 +6,34 @@ h1, h2, h3, p, ul, dl { margin: 0; }
 a { color: var(--brown); text-underline-offset: 3px; }
 a:focus-visible { outline: 2px solid var(--brown); outline-offset: 4px; border-radius: 2px; }
 .page { width: min(100%, 980px); margin: 28px auto; overflow: hidden; background: #fff; box-shadow: 0 18px 55px #4b3d2b12; }
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 24px; min-height: 280px; padding: 38px 54px 0; background: var(--beige); }
-.hero-copy { display: flex; flex-direction: column; justify-content: center; padding-bottom: 38px; }
-.eyebrow { display: block; color: var(--brown); font-size: 11px; font-weight: 750; letter-spacing: .13em; }
-h1 { margin-top: 12px; color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.065em; }
-.role { margin-top: 8px; color: var(--ink); font-size: 16px; font-weight: 650; }
-.hero-line { max-width: 520px; margin-top: 20px; color: var(--body); font-size: 13px; line-height: 1.7; }
-.hero-art { display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; grid-template-areas: "copy art" "intro art"; gap: 20px 24px; padding: 38px 54px 0; background: var(--beige); }
+.hero-copy { grid-area: copy; align-self: end; min-width: 0; }
+h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.065em; }
+.hero-contact { display: flex; flex-wrap: wrap; gap: 2px 16px; margin-top: 12px; font-size: 14px; }
+.hero-contact span { font-weight: 650; }
+.portfolio-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; border: 1px solid #75533f65; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 650; text-decoration: none; }
+.portfolio-link:hover { background: #ffffff80; }
+.hero-intro { grid-area: intro; max-width: 620px; padding-bottom: 38px; color: var(--body); font-size: 13px; line-height: 1.8; }
+.hero-intro p + p { margin-top: 9px; }
+.hero-intro strong { color: var(--ink); }
+.hero-art { grid-area: art; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
 .hero-photo { display: block; width: 216px; height: 248px; object-fit: cover; object-position: center 20%; }
-.resume-body { display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr); gap: 58px; padding: 40px 54px 68px; }
-.column { min-width: 0; }
-.contact { margin-bottom: 34px; }
-.contact-label { display: block; margin-bottom: 9px; color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .12em; }
-.contact a { display: block; border-bottom: 1px solid var(--rule); padding-bottom: 9px; font-size: 13px; font-weight: 600; }
-.intro { margin-bottom: 34px; color: var(--body); font-size: 13px; line-height: 1.85; }
-.intro strong { color: var(--ink); }
-.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.resume-body { padding: 40px 54px 68px; }
 .section { margin-top: 31px; }
-.section:first-of-type { margin-top: 0; }
+.section:first-child { margin-top: 0; }
 .section-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; padding: 8px 12px; background: var(--beige-soft); color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.4; }
 .section-title span { color: var(--brown); font-size: 10px; font-weight: 600; letter-spacing: .03em; }
-.row { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.row > div { min-width: 0; }
+.row .period { flex: none; margin-top: 0; white-space: nowrap; }
 .row:last-child { border-bottom: 0; }
 .row h3 { font-size: 12.5px; line-height: 1.5; }
 .period { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
 .detail { margin-top: 4px; color: var(--body); font-size: 12px; }
-.skill-grid > div { padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.skill-grid > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .skill-grid > div:last-child { border-bottom: 0; }
 .skill-grid dt { font-size: 12px; font-weight: 700; }
-.skill-grid dd { margin: 4px 0 0; color: var(--body); font-size: 12px; }
+.skill-grid dd { margin: 0; color: var(--body); font-size: 12px; }
 .project { padding: 17px 0 21px; border-bottom: 1px solid var(--rule); break-inside: avoid-page; }
 .project:first-of-type { padding-top: 0; }
 .project:last-child { padding-bottom: 0; border-bottom: 0; }
@@ -48,38 +47,37 @@ h1 { margin-top: 12px; color: var(--brown); font-size: 64px; line-height: 1.13; 
 .highlight { margin-top: 11px; border-left: 3px solid #a68366; padding: 9px 12px; background: var(--beige-soft); color: var(--body); font-size: 12px; }
 .highlight strong { display: block; margin-bottom: 3px; color: var(--brown); }
 .note { margin-top: 6px; color: var(--muted); font-size: 11px; }
-.language-list div { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 12px; }
+.language-list div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: 12px; }
 .language-list div:last-child { border-bottom: 0; }
 .language-list dt { min-width: 48px; font-weight: 700; }
 .language-list dd { margin: 0; color: var(--body); }
 @media (max-width: 700px) {
   .page { margin: 0; box-shadow: none; }
-  .hero { grid-template-columns: minmax(0, 1fr) 150px; gap: 10px; min-height: 0; padding: 28px 24px 0; }
-  .hero-copy { padding-bottom: 28px; }
+  .hero { grid-template-columns: minmax(0, 1fr) 150px; grid-template-areas: "copy art" "intro intro"; gap: 16px 10px; padding: 28px 24px 0; }
+  .hero-intro { max-width: none; padding-bottom: 28px; }
   .hero-photo { width: 150px; height: 205px; }
   h1 { font-size: 49px; }
-  .role { font-size: 14px; }
-  .resume-body { grid-template-columns: 1fr; gap: 34px; padding: 30px 24px 54px; }
-  .contact { margin-bottom: 28px; }
+  .resume-body { padding: 30px 24px 54px; }
   .section { margin-top: 28px; }
 }
 @media (max-width: 430px) {
   .hero { grid-template-columns: minmax(0, 1fr) 112px; gap: 8px; padding: 28px 19px 0; }
   .hero-photo { width: 112px; height: 186px; }
-  .eyebrow { font-size: 9px; }
   h1 { font-size: 44px; }
-  .hero-line { font-size: 11.5px; }
+  .hero-contact { gap: 0 8px; font-size: 12px; }
+  .row { display: block; }
+  .row .period { display: block; margin-top: 3px; }
+  .skill-grid > div, .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
 }
 @media print {
   @page { size: A4; margin: 12mm; }
   body { background: #fff; font-size: 11px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .page { width: 100%; margin: 0; box-shadow: none; }
-  .hero { min-height: 166px; padding: 18px 30px 0; }
+  .hero { gap: 12px 20px; padding: 18px 30px 0; }
   h1 { font-size: 46px; }
   .hero-photo { width: 155px; height: 170px; }
-  .resume-body { gap: 28px; padding: 20px 30px 0; }
-  .contact { margin-bottom: 22px; }
-  .intro { margin-bottom: 22px; line-height: 1.7; }
+  .hero-intro { padding-bottom: 20px; }
+  .resume-body { padding: 20px 30px 0; }
   .section { margin-top: 22px; }
   .section-title { margin-bottom: 9px; padding: 6px 10px; font-size: 14px; break-after: avoid-page; }
   .row, .skill-grid > div { padding: 6px 0; }
