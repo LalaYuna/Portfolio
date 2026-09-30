@@ -820,6 +820,14 @@ html:not(.js) .contact-form { display: none; }
 .education-topics { display: flex; flex-wrap: wrap; gap: 7px; margin: 16px 0 0; padding: 0; list-style: none; }
 .education-topics li { max-width: 100%; border: 1px solid #22232130; border-radius: 999px; padding: 4px 10px; font-size: 12px; line-height: 1.5; }
 .resume-one-page { background: #faf8f5; }
+.resume-cta-section { border-bottom: var(--line); background: var(--paper); text-align: center; }
+.resume-cta-heading { display: flex; align-items: center; gap: 22px; text-align: left; }
+.resume-cta-heading::after { flex: 1; border-top: 1px solid #22232125; content: ""; }
+.resume-cta-heading h2 { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 650; }
+.resume-cta-heading h2 span { font-size: .82em; }
+.resume-cta-section .shell > p { margin-top: 36px; color: var(--muted); font-size: 18px; }
+.resume-cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
+.resume-cta-actions .button { min-width: 190px; min-height: 58px; font-size: 17px; font-weight: 600; }
 .resume-page .resume-standalone { padding-top: 155px; }
 .resume-page .one-page-section-heading h1 { font-size: clamp(2.15rem, 4vw, 3.35rem); }
 .resume-reference-links { display: flex; flex-wrap: wrap; gap: 18px 28px; margin-bottom: 28px; font-size: 14px; }
@@ -917,6 +925,11 @@ html:not(.js) .contact-form { display: none; }
   .education-card { padding: 22px; }
   .education-card h3 { font-size: 22px; }
   .resume-page .resume-standalone { padding-top: 125px; }
+  .resume-cta-heading { gap: 14px; }
+  .resume-cta-heading h2 { gap: 8px; }
+  .resume-cta-section .shell > p { margin-top: 24px; font-size: 16px; }
+  .resume-cta-actions { margin-top: 28px; }
+  .resume-cta-actions .button { min-width: min(100%, 190px); }
   .resume-one-page .resume-section-heading h3 { font-size: 29px; }
   .resume-one-page .resume-item-content h4 { font-size: 20px; }
   .legacy-card { padding: 30px 22px; }
