@@ -56,10 +56,6 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
 .project-points { margin-top: 8px; padding-left: 18px; }
 .project-points li + li { margin-top: 5px; }
 .project-note { margin-top: 7px; color: var(--muted); font-size: calc(11px + 2pt); }
-.language-list div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 9px 0; border-bottom: 1px solid var(--rule); font-size: calc(12px + 2pt); }
-.language-list div:last-child { border-bottom: 0; }
-.language-list dt { min-width: 48px; font-weight: 700; }
-.language-list dd { margin: 0; color: var(--body); }
 @media (max-width: 700px) {
   .page { margin: 0; box-shadow: none; }
   .hero { grid-template-columns: minmax(0, 1fr) 150px; grid-template-areas: "copy art" "details details" "intro intro"; gap: 16px 10px; padding: 28px 24px 0; }
@@ -83,7 +79,6 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
   .row { display: block; }
   .row .period { display: block; margin-top: 3px; }
   .activity-details { margin-top: 8px; }
-  .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
 }
 @media print {
   @page { size: A4; margin: 12mm; }
@@ -109,6 +104,5 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
   .project-points { margin-top: 5px; padding-left: 15px; }
   .project-points li + li { margin-top: 2px; }
   .project-note { margin-top: 4px; font-size: calc(9px + 2pt); }
-  .language-list div { padding: 3px 0; }
   .row, .project { break-inside: avoid-page; }
 }
