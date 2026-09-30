@@ -34,10 +34,10 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
 .row h3 { font-size: 12.5px; line-height: 1.5; }
 .period { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
 .detail { margin-top: 4px; color: var(--body); font-size: 12px; }
-.skill-grid > div { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
+.skill-grid > div { padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .skill-grid > div:last-child { border-bottom: 0; }
 .skill-grid dt { font-size: 12px; font-weight: 700; }
-.skill-grid dd { margin: 0; color: var(--body); font-size: 12px; }
+.skill-grid dd { margin: 3px 0 0; color: var(--body); font-size: 12px; }
 .project { padding: 17px 0 21px; border-bottom: 1px solid var(--rule); break-inside: avoid-page; }
 .project:first-of-type { padding-top: 0; }
 .project:last-child { padding-bottom: 0; border-bottom: 0; }
@@ -75,7 +75,7 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
   .hero-contact { gap: 0 6px; font-size: 12px; }
   .row { display: block; }
   .row .period { display: block; margin-top: 3px; }
-  .skill-grid > div, .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
+  .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
 }
 @media print {
   @page { size: A4; margin: 12mm; }
