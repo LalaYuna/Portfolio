@@ -36,6 +36,11 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
 .education-row .period { margin-bottom: 3px; }
 .period { display: block; margin-top: 3px; color: var(--muted); font-size: calc(11px + 2pt); }
 .detail { margin-top: 4px; color: var(--body); font-size: calc(12px + 2pt); }
+.detail-list { margin-top: 4px; padding-left: 18px; color: var(--body); font-size: calc(12px + 2pt); }
+.detail-list li + li { margin-top: 4px; }
+.activity-row { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); align-items: start; gap: 22px; }
+.activity-row .period { margin-top: 5px; white-space: normal; }
+.activity-details { min-width: 0; margin-top: 0; }
 .skill-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 0; list-style: none; }
 .skill-list li { border-radius: 999px; padding: 5px 9px; background: #f2f2f2; color: var(--ink); font-size: calc(12px + 2pt); line-height: 1.5; white-space: nowrap; }
 .project { display: grid; grid-template-columns: minmax(0, 30%) minmax(0, 1fr); gap: 22px; padding: 17px 0 21px; border-bottom: 1px solid var(--rule); break-inside: avoid-page; }
@@ -68,6 +73,7 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
   .resume-body { padding: 30px 24px 54px; }
   .section { margin-top: 28px; }
   .project { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .activity-row { grid-template-columns: minmax(0, 1fr); gap: 8px; }
 }
 @media (max-width: 430px) {
   .hero { grid-template-columns: minmax(0, 1fr) 112px; gap: 8px; padding: 28px 19px 0; }
@@ -76,6 +82,7 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
   .hero-contact { gap: 0 6px; font-size: calc(12px + 2pt); }
   .row { display: block; }
   .row .period { display: block; margin-top: 3px; }
+  .activity-details { margin-top: 8px; }
   .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
 }
 @media print {
@@ -88,18 +95,20 @@ h1 { color: var(--brown); font-size: calc(64px + 2pt); line-height: 1.13; letter
   .hero-contact { font-size: calc(12px + 2pt); }
   .hero-photo { width: 155px; height: 170px; }
   .resume-body { padding: 20px 30px 0; }
-  .section { margin-top: 22px; }
+  .section { margin-top: 15px; }
   .section-title { margin-bottom: 9px; padding: 6px 10px; font-size: calc(14px + 2pt); break-after: avoid-page; }
-  .row { padding: 6px 0; }
+  .row { padding: 4px 0; }
+  .activity-row { gap: 16px; }
+  .detail-list li + li { margin-top: 2px; }
   .skill-list { gap: 6px; padding-top: 4px; }
   .skill-list li { padding: 4px 9px; font-size: calc(11px + 2pt); }
-  .project { gap: 16px; padding: 10px 0 12px; }
+  .project { gap: 16px; padding: 7px 0 9px; }
   .project h3 { font-size: calc(13px + 2pt); }
   .project-block { font-size: calc(10.5px + 2pt); line-height: 1.5; }
   .project-result { margin-top: 9px; padding-top: 9px; }
   .project-points { margin-top: 5px; padding-left: 15px; }
   .project-points li + li { margin-top: 2px; }
   .project-note { margin-top: 4px; font-size: calc(9px + 2pt); }
-  .language-list div { padding: 5px 0; }
+  .language-list div { padding: 3px 0; }
   .row, .project { break-inside: avoid-page; }
 }
