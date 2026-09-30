@@ -6,17 +6,21 @@ h1, h2, h3, p, ul, dl { margin: 0; }
 a { color: var(--brown); text-underline-offset: 3px; }
 a:focus-visible { outline: 2px solid var(--brown); outline-offset: 4px; border-radius: 2px; }
 .page { width: min(100%, 980px); margin: 28px auto; overflow: hidden; background: #fff; box-shadow: 0 18px 55px #4b3d2b12; }
-.hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; grid-template-areas: "copy art" "intro art"; gap: 20px 24px; padding: 38px 54px 0; background: var(--beige); }
-.hero-copy { grid-area: copy; align-self: end; min-width: 0; }
+.hero { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 24px; padding: 38px 54px 0; background: var(--beige); }
+.hero-main { display: flex; flex-direction: column; justify-content: center; gap: 18px; min-width: 0; padding-bottom: 38px; }
+.hero-copy { min-width: 0; }
 h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.065em; }
-.hero-contact { display: flex; flex-wrap: wrap; gap: 2px 16px; margin-top: 12px; font-size: 14px; }
+.hero-contact { display: flex; flex-wrap: wrap; gap: 2px 12px; margin-top: 12px; font-size: 14px; }
+.hero-contact > * { white-space: nowrap; }
+.hero-contact > * + * { border-left: 1px solid #75533f75; padding-left: 12px; }
 .hero-contact span { font-weight: 650; }
+.hero-phone-placeholder { color: var(--muted); }
 .portfolio-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; border: 1px solid #75533f65; border-radius: 999px; padding: 3px 10px; font-size: 12px; font-weight: 650; text-decoration: none; }
 .portfolio-link:hover { background: #ffffff80; }
-.hero-intro { grid-area: intro; max-width: 620px; padding-bottom: 38px; color: var(--body); font-size: 13px; line-height: 1.8; }
+.hero-intro { max-width: 620px; color: var(--body); font-size: 13px; line-height: 1.8; }
 .hero-intro p + p { margin-top: 9px; }
 .hero-intro strong { color: var(--ink); }
-.hero-art { grid-area: art; display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
+.hero-art { display: flex; align-items: flex-end; justify-content: center; overflow: hidden; }
 .hero-photo { display: block; width: 216px; height: 248px; object-fit: cover; object-position: center 20%; }
 .resume-body { padding: 40px 54px 68px; }
 .section { margin-top: 31px; }
@@ -54,7 +58,10 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
 @media (max-width: 700px) {
   .page { margin: 0; box-shadow: none; }
   .hero { grid-template-columns: minmax(0, 1fr) 150px; grid-template-areas: "copy art" "intro intro"; gap: 16px 10px; padding: 28px 24px 0; }
-  .hero-intro { max-width: none; padding-bottom: 28px; }
+  .hero-main { display: contents; }
+  .hero-copy { grid-area: copy; align-self: end; }
+  .hero-intro { grid-area: intro; max-width: none; padding-bottom: 28px; }
+  .hero-art { grid-area: art; }
   .hero-photo { width: 150px; height: 205px; }
   h1 { font-size: 49px; }
   .resume-body { padding: 30px 24px 54px; }
@@ -65,6 +72,8 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
   .hero-photo { width: 112px; height: 186px; }
   h1 { font-size: 44px; }
   .hero-contact { gap: 0 8px; font-size: 12px; }
+  .hero-contact > * + * { padding-left: 8px; }
+  .hero-contact > a { border-left: 0; padding-left: 0; }
   .row { display: block; }
   .row .period { display: block; margin-top: 3px; }
   .skill-grid > div, .language-list div { grid-template-columns: 105px minmax(0, 1fr); gap: 10px; }
@@ -73,10 +82,11 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
   @page { size: A4; margin: 12mm; }
   body { background: #fff; font-size: 11px; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .page { width: 100%; margin: 0; box-shadow: none; }
-  .hero { gap: 12px 20px; padding: 18px 30px 0; }
+  .hero { gap: 20px; padding: 18px 30px 0; }
+  .hero-main { gap: 12px; padding-bottom: 20px; }
   h1 { font-size: 46px; }
+  .hero-contact { font-size: 12px; }
   .hero-photo { width: 155px; height: 170px; }
-  .hero-intro { padding-bottom: 20px; }
   .resume-body { padding: 20px 30px 0; }
   .section { margin-top: 22px; }
   .section-title { margin-bottom: 9px; padding: 6px 10px; font-size: 14px; break-after: avoid-page; }
