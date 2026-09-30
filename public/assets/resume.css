@@ -25,7 +25,7 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
 .resume-body { display: grid; grid-template-columns: minmax(0, 1fr); padding: 40px 54px 68px; }
 .section { width: 100%; margin-top: 31px; }
 .section:first-child { margin-top: 0; }
-.section-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; border-bottom: 1px solid var(--rule); padding-bottom: 8px; color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.4; }
+.section-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; padding: 8px 12px; background: var(--beige-soft); color: var(--ink); font-size: 16px; font-weight: 750; line-height: 1.4; }
 .section-title span { color: var(--brown); font-size: 10px; font-weight: 600; letter-spacing: .03em; }
 .row { display: flex; align-items: baseline; justify-content: space-between; gap: 12px 24px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .row > div { min-width: 0; }
@@ -34,10 +34,8 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
 .row h3 { font-size: 12.5px; line-height: 1.5; }
 .period { display: block; margin-top: 3px; color: var(--muted); font-size: 11px; }
 .detail { margin-top: 4px; color: var(--body); font-size: 12px; }
-.skill-grid > div { padding: 10px 0; border-bottom: 1px solid var(--rule); }
-.skill-grid > div:last-child { border-bottom: 0; }
-.skill-grid dt { font-size: 12px; font-weight: 700; }
-.skill-grid dd { margin: 3px 0 0; color: var(--body); font-size: 12px; }
+.skill-list { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 0; list-style: none; }
+.skill-list li { border-radius: 999px; padding: 5px 9px; background: #f2f2f2; color: var(--ink); font-size: 12px; line-height: 1.5; white-space: nowrap; }
 .project { padding: 17px 0 21px; border-bottom: 1px solid var(--rule); break-inside: avoid-page; }
 .project:first-of-type { padding-top: 0; }
 .project:last-child { padding-bottom: 0; border-bottom: 0; }
@@ -88,8 +86,10 @@ h1 { color: var(--brown); font-size: 64px; line-height: 1.13; letter-spacing: -.
   .hero-photo { width: 155px; height: 170px; }
   .resume-body { padding: 20px 30px 0; }
   .section { margin-top: 22px; }
-  .section-title { margin-bottom: 9px; padding-bottom: 6px; font-size: 14px; break-after: avoid-page; }
-  .row, .skill-grid > div { padding: 6px 0; }
+  .section-title { margin-bottom: 9px; padding: 6px 10px; font-size: 14px; break-after: avoid-page; }
+  .row { padding: 6px 0; }
+  .skill-list { gap: 6px; padding-top: 4px; }
+  .skill-list li { padding: 4px 9px; font-size: 11px; }
   .project { padding: 10px 0 12px; }
   .project-role { margin-top: 5px; }
   .project-desc { margin-top: 3px; line-height: 1.55; }
