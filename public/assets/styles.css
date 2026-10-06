@@ -198,14 +198,13 @@ a.project-cover:hover { filter: saturate(1.15); }
 .tool-group .skill-tags { gap: 6px; margin-top: 11px; }
 .tool-group .skill-tags li { flex-wrap: wrap; gap: 6px; min-height: 32px; padding: 3px 9px 3px 5px; font-size: 12px; line-height: 1.5; }
 .tool-level { border-radius: 20px; padding: 2px 6px; color: #4b4761; background: #eeecff; font-size: 10px; font-weight: 600; line-height: 1.5; white-space: nowrap; }
-.about-metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 30px; }
+.about-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px; max-width: 537px; margin: 30px auto 0; }
 .about-metric-card { display: flex; flex-direction: column; min-width: 0; min-height: 150px; border: var(--line); border-radius: 15px; padding: 18px; }
 .about-metric-card strong { font-size: 22px; line-height: 1.25; letter-spacing: -.045em; }
 .about-metric-card span { margin-top: 15px; font-size: 13px; line-height: 1.55; }
 .about-metric-card small { margin-top: auto; padding-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 .about-metric-pink { background: var(--pink); }
 .about-metric-yellow { background: var(--yellow); }
-.about-metric-blue { background: var(--blue); }
 .about-actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
 .about-action { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 48px; border: var(--line); border-radius: 10px; padding: 9px 18px; background: #ffffffb8; font-size: 14px; font-weight: 500; line-height: 1.5; transition: background .2s, transform .2s, box-shadow .2s; }
 a.about-action:hover { background: white; transform: translateY(-2px); }
@@ -397,7 +396,7 @@ html:not(.js) .contact-form { display: none; }
   .about-copy > .about-kicker { font-size: 16px; }
   .about-copy h1 { font-size: 36px; }
   .about-copy > p { font-size: 16px; }
-  .about-metrics { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .about-metrics { grid-template-columns: minmax(0, 1fr); gap: 12px; max-width: none; }
   .about-metric-card { min-height: 0; padding: 17px; }
   .about-metric-card span { margin-top: 8px; }
   .about-metric-card small { padding-top: 8px; }
