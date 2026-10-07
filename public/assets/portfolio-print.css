@@ -1,0 +1,98 @@
+@page { size: A4; margin: 12mm 13mm 17mm; }
+html, body.one-page-site { max-width: none; overflow: visible; }
+body.one-page-site { background: white; font-size: 10pt; line-height: 1.6; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+.one-page-site .shell { width: 100%; }
+.one-page-site :is(.site-header, .skip-link, .project-jump-links, .about-actions, .copy-button, .copy-status, .petfriends-carousel-arrow, .petfriends-carousel-controls, .site-footer, #resume) { display: none !important; }
+.one-page-site .section { padding: 0; border: 0; background: white; }
+.one-page-site :is(p, li, dd) { font-size: 10pt !important; line-height: 1.6 !important; }
+.one-page-site :is(h1, h2, h3, h4, h5, h6) { break-after: avoid-page; }
+.one-page-site :is(h1, h2, h3, h4, h5, h6, strong, b) { font-weight: 600 !important; }
+.one-page-site p { orphans: 3; widows: 3; }
+.one-page-site li { break-inside: avoid-page; }
+.one-page-site :is(img, video) { max-width: 100%; }
+.one-page-site #about { padding-bottom: 16px; }
+.one-page-site .about-layout { display: grid; grid-template-columns: 125px minmax(0, 1fr); gap: 22px; }
+.one-page-site .about-identity { width: 125px; max-width: none; min-height: 0; padding: 0; border: 0; border-radius: 0; background: white; }
+.one-page-site .about-photo { width: 125px; height: 167px; border-radius: 10px; }
+.one-page-site .identity-bottom { display: block; margin-top: 10px; padding-top: 8px; }
+.one-page-site .identity-bottom strong { display: block; font-size: 18pt; }
+.one-page-site .identity-bottom > span { display: block; margin-top: 4px; font-size: 7pt; }
+.one-page-site .about-copy > .about-kicker { margin-bottom: 10px; font-size: 9pt; }
+.one-page-site .about-copy h1 { font-size: 23pt; line-height: 1.3; }
+.one-page-site .about-copy > p { margin-top: 13px; }
+.one-page-site .about-metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: none; margin-top: 16px; gap: 10px; }
+.one-page-site .about-metric-card { min-height: 118px; padding: 12px; break-inside: avoid-page; }
+.one-page-site .about-metric-card strong { font-size: 14pt; }
+.one-page-site .about-metric-card span { margin-top: 8px; font-size: 8pt; }
+.one-page-site .about-metric-card small { padding-top: 8px; font-size: 7.5pt; }
+.one-page-site .about-contact { margin-top: 16px; padding-top: 12px; }
+.one-page-site .about-contact h2 { font-size: 10pt; }
+.one-page-site .contact-shortcut-row { gap: 8px; margin-top: 8px; }
+.one-page-site .about-action { min-height: 0; padding: 5px 8px; font-size: 8pt; border-radius: 6px; }
+.one-page-site .section-heading { margin-bottom: 16px; }
+.one-page-site .section-heading .eyebrow { margin-bottom: 4px; font-size: 8pt; }
+.one-page-site .one-page-section-heading h2 { font-size: 23pt; }
+.one-page-site .skills-category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.one-page-site .skills-category { padding: 14px; border-radius: 12px; break-inside: avoid-page; }
+.one-page-site .skills-category:last-child { grid-column: auto; }
+.one-page-site .skills-category h3 { font-size: 12pt; }
+.one-page-site .skills-detail-list li { padding-block: 9px; }
+.one-page-site .skill-name { gap: 7px; }
+.one-page-site .skill-name strong { font-size: 10pt; }
+.one-page-site #projects { break-before: page; }
+.one-page-site .one-page-work-grid { display: block; }
+.one-page-site .work-card { display: block; margin: 0; border: 0; border-radius: 0; overflow: visible; break-inside: auto; box-shadow: none; }
+.one-page-site .work-card + .work-card { break-before: page; }
+.one-page-site .detail-project-cover { min-height: 0; padding: 18px; border-radius: 12px; break-inside: avoid-page; }
+.one-page-site .detail-cover-label { padding-bottom: 8px; font-size: 8pt; }
+.one-page-site .detail-cover-title { margin-top: 14px; font-size: 21pt; line-height: 1.35; }
+.one-page-site .detail-cover-description { margin-top: 12px; }
+.one-page-site .work-card-body { padding: 18px 0 0; }
+.one-page-site .project-basic-meta { margin-top: 12px; }
+.one-page-site .project-basic-meta > div { grid-template-columns: 105px minmax(0, 1fr); padding-block: 8px; }
+.one-page-site .project-basic-meta dt { font-size: 8pt; }
+.one-page-site :is(.campaign-section-title, .additional-detail-section > .eyebrow) { margin-bottom: 12px !important; font-size: 16pt !important; }
+.one-page-site :is(.campaign-detail-section, .social-detail-section, .barryway-detail-section, .additional-detail-section, .additional-overview-section) { padding: 18px 0; }
+.one-page-site :is(.campaign-section-grid, .social-section-grid) { display: block; }
+.one-page-site :is(h5, .data-analysis-case > h5) { font-size: 13pt !important; }
+.one-page-site h6 { font-size: 11pt !important; }
+.one-page-site .campaign-process { margin-top: 12px; padding: 12px; }
+.one-page-site .campaign-media-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.one-page-site .campaign-media-item { height: auto; padding: 10px; break-inside: avoid-page; }
+.one-page-site .campaign-media-item h6 { min-height: 0; }
+.one-page-site :is(.campaign-media-video, .campaign-pdf-preview img) { width: 100%; height: 205px; object-fit: contain; background: white; }
+.one-page-site .campaign-media-item :is(p, dd) { font-size: 8.5pt !important; }
+.one-page-site :is(.campaign-table-scroll, .campaign-action-table-wrap) { overflow: visible; break-inside: avoid-page; }
+.one-page-site .campaign-result-table { min-width: 0; font-size: 8pt; }
+.one-page-site .campaign-result-table :is(th, td) { padding: 6px 7px; }
+.one-page-site .campaign-action-table :is(th, td) { padding: 8px; }
+.one-page-site :is(.campaign-insight-item, .campaign-topic-list > div, .additional-subsection, .data-analysis-part) { break-inside: avoid-page; }
+.one-page-site .social-case-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.one-page-site .social-case-item { padding: 12px; break-inside: avoid-page; }
+.one-page-site .social-case-item :is(p, dd) { font-size: 8.5pt !important; }
+.one-page-site .social-case-item h6 { font-size: 10pt !important; }
+.one-page-site .social-video-figure { margin-block: 10px; }
+.one-page-site .social-video-figure :is(img, video) { width: 100%; height: 210px; object-fit: contain; }
+.one-page-site .social-case-facts > div { display: block; }
+.one-page-site .social-evidence-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.one-page-site .social-evidence-item { break-inside: avoid-page; }
+.one-page-site .social-evidence-item img { max-height: 300px; width: 100%; object-fit: contain; }
+.one-page-site .barryway-flow-grid { grid-template-columns: minmax(0, 1fr) 50px minmax(0, 1fr); }
+.one-page-site .barryway-flow-video :is(img, video) { width: 100%; height: 220px; object-fit: contain; background: white; }
+.one-page-site .barryway-output-item { padding: 14px; break-inside: avoid-page; }
+.one-page-site .petfriends-output-layout { display: block; }
+.one-page-site .petfriends-carousel-heading p { display: none; }
+.one-page-site .petfriends-carousel-stage { display: block; }
+.one-page-site .petfriends-carousel-viewport { overflow: visible; }
+.one-page-site .petfriends-carousel-track { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; transform: none !important; }
+.one-page-site .petfriends-carousel-slide { width: auto !important; flex: none !important; break-inside: avoid-page; }
+.one-page-site .petfriends-carousel-slide img { transform: none; }
+.one-page-site .petfriends-caption { margin-top: 20px; }
+.one-page-site .petfriends-caption .additional-caption-copy { margin-top: 12px; }
+.one-page-site .data-table-figure { overflow: visible !important; break-inside: avoid-page; }
+.one-page-site .data-table-figure a { width: 100% !important; }
+.one-page-site #education { margin-top: 24px; break-inside: avoid-page; }
+.one-page-site .education-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.one-page-site .education-card { padding: 16px; }
+.one-page-site .education-card h3 { font-size: 14pt; }
+.one-page-site .pdf-video-link { display: block; margin-top: 5px; color: #65507a; font-size: 8pt; }

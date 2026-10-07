@@ -822,7 +822,7 @@ html:not(.js) .contact-form { display: none; }
 .resume-cta-section { border-bottom: var(--line); background: var(--paper); text-align: center; }
 .resume-cta-heading { display: flex; align-items: center; gap: 22px; text-align: left; }
 .resume-cta-heading::after { flex: 1; border-top: 1px solid #22232125; content: ""; }
-.resume-cta-heading h2 { display: inline-flex; align-items: center; gap: 12px; white-space: nowrap; font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 650; }
+.resume-cta-heading h2 { display: inline-flex; align-items: center; gap: 12px; font-size: clamp(2rem, 3.4vw, 2.75rem); font-weight: 650; }
 .resume-cta-heading h2 span { font-size: .82em; }
 .resume-cta-section .shell > p { margin-top: 36px; color: var(--muted); font-size: 18px; }
 .resume-cta-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 14px; margin-top: 38px; }
